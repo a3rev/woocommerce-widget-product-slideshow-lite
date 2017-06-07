@@ -4,7 +4,7 @@
  * Install Database, settings option
  */
 function wc_product_slider_activated(){
-	update_option('woo_gallery_widget_lite_version', '1.5.4');
+	update_option('woo_gallery_widget_lite_version', '1.6.0');
 
 	global $wc_product_slider_admin_init;
 	delete_metadata( 'user', 0, $wc_product_slider_admin_init->plugin_name . '-' . 'plugin_framework_global_box' . '-' . 'opened', '', true );
@@ -106,7 +106,7 @@ function wc_product_slider_lite_upgrade_plugin () {
 		include( WC_PRODUCT_SLIDER_FILE_PATH. '/includes/updates/update-1.5.0.php' );
 	}
 
-	update_option('woo_gallery_widget_lite_version', '1.5.4');
+	update_option('woo_gallery_widget_lite_version', '1.6.0');
 }
 
 ?>

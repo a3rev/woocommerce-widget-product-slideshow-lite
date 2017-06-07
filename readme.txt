@@ -2,19 +2,19 @@
 
 Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
-Requires at least: 4.1
-Tested up to: 4.7.4
-Stable tag: 1.5.4
+Requires at least: 4.5
+Tested up to: 4.8.0
+Stable tag: 1.6.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Beautifully lightweight, mobile & tablet responsive WooCommerce Widget Product Slider plugin that packs a powerful marketing punch
 
-== Description ==
+== DESCRIPTION ==
 
 WooCommerce Widget Product Slider enables you to create slick Product Sliders in any sidebar or widgetized area on your site. Home page, Footer, multiple sidebars.
 
-= Key Features =
+= KEY FEATURES =
 
 * Creates an eye catching product slideshow in any widgetized area or sidebar.
 * Fully mobile and tablet responsive.
@@ -27,12 +27,12 @@ WooCommerce Widget Product Slider enables you to create slick Product Sliders in
 * Optimized for all browsers
 * Lightweight, fast and powerful.
 
-= Widget Skin Features =
+= WIDGET SKIN FEATURES =
 
 Featuring Dynamic Style options. The Widget skin has over 70 options for creating your perfect Widget Product Slider to match your site design. All without touching the code.
 
 
-= Add Slider by Widget =
+= ADD SLIDER BY WIDGET =
 
 Use the Woo Product Slider on your widget menu to add Product Sliders to any widgeted area on your site. The widget admin menu allows you to set:
 
@@ -45,20 +45,19 @@ Use the Woo Product Slider on your widget menu to add Product Sliders to any wid
 * Set the speed of the transition.
 * Set the image size
 
-= More Features =
+= PREMIUM VERSION =
 
 If you try WooCommerce Widget Product Slider and like it but find there is a feature it does not have ... there are 2 upgrade Premium versions available.
 
-= Localization =
-* English (default) - always include.
-* .po file (wc_product_slider.po) in languages folder for translations.
-* Your translation? Please do yours and [send it to us](http://a3rev.com/contact-us-page/) We'll acknowledge your work and link to your site.
+* [WooCommerce Product Slider](http://a3rev.com/shop/woocommerce-product-slider/)
+* [WooCommerce Carousel abs Slider](https://a3rev.com/shop/woocommerce-carousel-slider/)
 
-= Plugin Resources =
+= CONTRIBUTE =
 
-[Pro Version](http://a3rev.com/shop/woocommerce-product-slider/)
-[Documentation](http://docs.a3rev.com/user-guides/woocommerce/woo-widget-product-slider/)
-[Lite Version Support](http://wordpress.org/support/plugin/woo-widget-product-slideshow/)
+When you download WooCommerce Widget Product Slider, you join our the a3rev Software community. Regardless of if you are a WordPress beginner or experienced developer if you are interested in contributing to the future development of this plugin head over to the WooCommerce Widget Product Slider[GitHub Repository](https://github.com/a3rev/woocommerce-widget-product-slideshow-lite) to find out how you can contribute.
+
+Want to add a new language to WooCommerce Widget Product Slider! You can contribute via [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/woo-widget-product-slideshow)
+
 
 == Screenshots ==
 
@@ -89,6 +88,14 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 1.6.0 - 2017/06/07 =
+* Feature - Launched WooCommerce Widget Product Slider public Github Repository
+* Tweak - Tested for compatibility with WordPress major version 4.8.0
+* Tweak - tested for compatibility with WooCommerce version 3.0.7
+* Tweak - Include bootstrap modal script into plugin framework
+* Tweak - Update a3rev plugin framework to latest version
+* Fix - Update underscore templateSettings to add support for default symbol - <% in addition to Slider symbol - {{ to remove conflict with plugins that use underscore template with default symbol.
 
 = 1.5.4 - 2017/04/17 =
 * Tweak - Full compatibility with WC version 3.0.3 with backward compatibility to WC version 2.6.0
@@ -348,6 +355,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 1.6.0 =
+Feature Update. 2 code tweaks and 1 bug fix for compatibility with WordPress major version 4.8.0 and WooCommerce version 3.0.7 plus launch of public Github repo for source code
 
 = 1.5.4 =
 Maintenance Update. 4 major code tweaks for compatibility with WooCommerce V 3.0.0 backwards to v 2.6.0
