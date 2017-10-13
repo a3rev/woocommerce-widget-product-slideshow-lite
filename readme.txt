@@ -361,6 +361,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 == Upgrade Notice ==
 
+= 1.6.1 =
+Maintenance Upgrade. Tweaks for compatibility with WooCommerce 3.2.0 and WordPress 4.8.2
+
 = 1.6.0 =
 Feature Update. 2 code tweaks and 1 bug fix for compatibility with WordPress major version 4.8.0 and WooCommerce version 3.0.7 plus launch of public Github repo for source code
 
