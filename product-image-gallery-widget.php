@@ -5,8 +5,8 @@ Description: Adds visually stunning WooCommerce product sliders to any widgeted 
 Version: 1.6.1
 Author: a3rev Software
 Author URI: https://a3rev.com/
-Requires at least: 4.1
-Tested up to: 4.8.2
+Requires at least: 4.5
+Tested up to: 4.9.0
 Text Domain: woo-widget-product-slideshow
 Domain Path: /languages
 WC requires at least: 2.0.0
