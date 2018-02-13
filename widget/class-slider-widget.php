@@ -22,6 +22,13 @@ class WC_Product_Slider_Widget extends WP_Widget
 
 	function widget( $args, $instance ) {
 		extract($args);
+
+		if ( version_compare( WC_VERSION, '3.3.0', '<' ) ) {
+			// bw compat. for less than WC 3.3.0
+			$thumbnail_size_name = 'shop_catalog';
+		} else {
+			$thumbnail_size_name = 'woocommerce_thumbnail';
+		}
 		
 		$instance = wp_parse_args( (array) $instance, array( 
 			'title' 				=> '', 
@@ -32,7 +39,7 @@ class WC_Product_Slider_Widget extends WP_Widget
 			'effect_delay'			=> 1,
 			'effect_timeout'		=> 4,
 			'effect_speed'			=> 2,
-			'image_size'			=> 'shop_catalog',
+			'image_size'			=> $thumbnail_size_name,
 
 			'number_products' => 6
 		) );
@@ -104,6 +111,14 @@ class WC_Product_Slider_Widget extends WP_Widget
 	}
 
 	function form( $instance ) {
+
+		if ( version_compare( WC_VERSION, '3.3.0', '<' ) ) {
+			// bw compat. for less than WC 3.3.0
+			$thumbnail_size_name = 'shop_catalog';
+		} else {
+			$thumbnail_size_name = 'woocommerce_thumbnail';
+		}
+
 		$instance = wp_parse_args( (array) $instance, array( 
 			'title' 				=> '', 
 			'category_id' 			=> 0,
@@ -113,7 +128,7 @@ class WC_Product_Slider_Widget extends WP_Widget
 			'effect_delay'			=> 1,
 			'effect_timeout'		=> 4,
 			'effect_speed'			=> 2,
-			'image_size'			=> 'shop_catalog',
+			'image_size'			=> $thumbnail_size_name,
 			
 			'number_products' => 6
 		) );

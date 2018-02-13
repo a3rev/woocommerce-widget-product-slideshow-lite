@@ -138,9 +138,15 @@ class WC_Product_Slider_Shortcode
                         <select id="wc_product_slider_image_size" name="wc_product_slider_image_size" >
                         <?php
                         $available_sizes = get_intermediate_image_sizes();
+                        if ( version_compare( WC_VERSION, '3.3.0', '<' ) ) {
+                            // bw compat. for less than WC 3.3.0
+                            $thumbnail_size_name = 'shop_catalog';
+                        } else {
+                            $thumbnail_size_name = 'woocommerce_thumbnail';
+                        }
                         foreach ( $available_sizes as $size_name ) {
                         ?>
-                            <option value="<?php echo $size_name; ?>" <?php selected( $size_name, 'shop_catalog', true ); ?>><?php echo $size_name; ?></option>
+                            <option value="<?php echo $size_name; ?>" <?php selected( $size_name, $thumbnail_size_name, true ); ?>><?php echo $size_name; ?></option>
                         <?php
                         }
                         ?>

@@ -5,10 +5,10 @@ if (!defined('ABSPATH'))
 
 class WC_Product_Slider_Less
 {
-	public $plugin_name = 'wc_product_slider';
-	public $css_file_name = 'wc_widget_product_slider_lite';
-	public $plugin_folder = WC_PRODUCT_SLIDER_FOLDER;
-	public $plugin_dir = WC_PRODUCT_SLIDER_DIR;
+    public $plugin_name   = WC_PRODUCT_SLIDER_KEY;
+    public $css_file_name = 'wc_widget_product_slider_lite';
+    public $plugin_folder = WC_PRODUCT_SLIDER_FOLDER;
+    public $plugin_dir    = WC_PRODUCT_SLIDER_DIR;
 
     /*-----------------------------------------------------------------------------------*/
     /* Constructor */

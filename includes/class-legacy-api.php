@@ -57,7 +57,13 @@ class WC_Product_Slider_Legacy_API {
 
 		$product_results = $this->get_products_cat( $category_id, $filter_type, 'date', $number_products, 0, $slider_lang );
 		
-		$image_size = 'shop_catalog';
+		if ( version_compare( WC_VERSION, '3.3.0', '<' ) ) {
+			// bw compat. for less than WC 3.3.0
+			$image_size = 'shop_catalog';
+		} else {
+			$image_size = 'woocommerce_thumbnail';
+		}
+		
 		if ( isset( $slider_settings['image_size'] ) ) {
 			$image_size = $slider_settings['image_size'];
 		}

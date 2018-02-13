@@ -8,17 +8,19 @@
 if( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) 
 	exit();
 
+$plugin_key = 'woo_gallery_widget';
+
 // Delete Google Font
-delete_option('wc_product_slider_google_api_key' . '_enable');
-delete_transient('wc_product_slider_google_api_key' . '_status');
-delete_option('wc_product_slider' . '_google_font_list');
+delete_option( $plugin_key . '_google_api_key' . '_enable' );
+delete_transient( $plugin_key . '_google_api_key' . '_status' );
+delete_option( $plugin_key . '_google_font_list' );
 
-if ( get_option('wc_widget_product_slider_lite_clean_on_deletion') == 1) {
-	delete_option('wc_product_slider_google_api_key');
-    delete_option('wc_product_slider_toggle_box_open');
-    delete_option('wc_product_slider' . '-custom-boxes');
+if ( get_option( $plugin_key . '_clean_on_deletion' ) == 1 ) {
+	delete_option( $plugin_key . '_google_api_key' );
+    delete_option( $plugin_key . '_toggle_box_open' );
+    delete_option( $plugin_key . '-custom-boxes' );
 
-    delete_metadata( 'user', 0, 'wc_product_slider' . '-' . 'plugin_framework_global_box' . '-' . 'opened', '', true );
+    delete_metadata( 'user', 0, $plugin_key . '-' . 'plugin_framework_global_box' . '-' . 'opened', '', true );
 
 delete_option( 'wc_product_slider_global_settings' );
 delete_option( 'wc_product_slider_a3_widget_skin_global_settings' );
@@ -53,6 +55,6 @@ delete_option( 'wc_product_slider_a3_carousel_pager_settings' );
 
 delete_option( 'wc_product_slider_widget_skin_settings' );
 
-delete_option( 'wc_widget_product_slider_lite_clean_on_deletion' );
+delete_option( $plugin_key . '_clean_on_deletion' );
 
 }

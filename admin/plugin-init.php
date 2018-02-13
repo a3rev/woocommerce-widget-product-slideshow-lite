@@ -4,15 +4,13 @@
  * Install Database, settings option
  */
 function wc_product_slider_activated(){
-	update_option('woo_gallery_widget_lite_version', '1.6.1');
+	update_option( 'woo_gallery_widget_lite_version', WC_PRODUCT_SLIDER_VERSION );
 
 	global $wc_product_slider_admin_init;
 	delete_metadata( 'user', 0, $wc_product_slider_admin_init->plugin_name . '-' . 'plugin_framework_global_box' . '-' . 'opened', '', true );
 
 	update_option('a3_wc_widget_product_slider_just_installed', true);
 }
-
-update_option('woo_gallery_widget_plugin', 'woo_gallery_widget');
 
 function wc_product_slider_init() {
 	if ( get_option( 'a3_wc_widget_product_slider_just_installed' ) ) {
@@ -25,9 +23,6 @@ function wc_product_slider_init() {
 		// Build sass
 		global $wc_product_slider_less;
 		$wc_product_slider_less->plugin_build_sass();
-
-		wp_redirect( admin_url( 'admin.php?page=wc-product-slider', 'relative' ) );
-		exit;
 	}
 
 	wc_product_slider_plugin_textdomain();
@@ -106,7 +101,7 @@ function wc_product_slider_lite_upgrade_plugin () {
 		include( WC_PRODUCT_SLIDER_FILE_PATH. '/includes/updates/update-1.5.0.php' );
 	}
 
-	update_option('woo_gallery_widget_lite_version', '1.6.1');
+	update_option('woo_gallery_widget_lite_version', WC_PRODUCT_SLIDER_VERSION );
 }
 
 ?>
