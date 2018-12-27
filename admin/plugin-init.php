@@ -56,9 +56,13 @@ add_action( 'wp_enqueue_scripts', array( 'WC_Product_Slider_Hook_Filter', 'add_g
 
 $GLOBALS['wc_product_slider_shortcode'] = new WC_Product_Slider_Shortcode();
 
+function wc_product_slider_register_widgets() {
+	register_widget("WC_Product_Slider_Widget");
+	register_widget("WC_Product_Slider_Carousel_Widget");
+}
+
 // Registry Widgets
-add_action( 'widgets_init', create_function('', 'return register_widget("WC_Product_Slider_Widget");') );
-add_action( 'widgets_init', create_function('', 'return register_widget("WC_Product_Slider_Carousel_Widget");') );
+add_action( 'widgets_init', 'wc_product_slider_register_widgets' );
 
 if ( in_array( basename( $_SERVER['PHP_SELF'] ), array( 'widgets.php' ) ) ) {
 	add_action( 'admin_footer', array( 'WC_Product_Slider_Hook_Filter', 'include_admin_script' ) );
