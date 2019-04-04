@@ -3,8 +3,8 @@
 Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
 Requires at least: 4.5
-Tested up to: 5.0.2
-Stable tag: 1.6.4
+Tested up to: 5.1.1
+Stable tag: 1.6.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -88,6 +88,14 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 1.6.5 - 2019/04/04 =
+* This Maintenance update has a tweak for WPML dynamic text stings support plus compatibility tests for WooCommerce 3.5.7, upcoming WordPress 5.2 and WPML version 4.2
+* Tweak - Test for compatibility with WordPress 5.2
+* Tweak - Test for compatibility with WooCommerce 3.5.7
+* Tweak - Replace ict_t with wpml_translate_single_string  filter for compatibility with WPML 4.2
+* Tweak - Replace icl_register_string with wpml_register_single_string action for compatibility with WPML 4.2
+* Tweak - Full compatibility with WPML with dynamic text
 
 = 1.6.4 - 2018/12/27 =
 * This maintenance update is for compatibility with WordPress 5.0.2, WooCommerce 3.5.3 and PHP 7.3. It also includes performance updates to the plugin framework.
@@ -389,6 +397,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 1.6.5 =
+This Maintenance update has a tweak for WPML dynamic text stings support plus compatibility tests for WooCommerce 3.5.7, upcoming WordPress 5.2 and WPML version 4.2
 
 = 1.6.4 =
 This maintenance update is for compatibility with WordPress 5.0.2, WooCommerce 3.5.3 and PHP 7.3. It also includes performance updates to the plugin framework.
