@@ -87,12 +87,17 @@ class WC_Product_Slider_Legacy_API {
 				$thumb_image_url  = $thumb_image_info['url'];
 				$img_srcset       = '';
 				$img_sizes        = '';
+				$alt              = $product->post_title;
 
 				if ( isset( $thumb_image_info['srcset'] ) ) {
 					$img_srcset = $thumb_image_info['srcset'];
 				}
 				if ( isset( $thumb_image_info['sizes'] ) ) {
 					$img_sizes = $thumb_image_info['sizes'];
+				}
+
+				if ( isset( $thumb_image_info['alt'] ) ) {
+					$alt = $thumb_image_info['alt'];
 				}
 
 				$slide_data = array(
@@ -102,7 +107,8 @@ class WC_Product_Slider_Legacy_API {
 					'img_url'       => $thumb_image_url,
 					'img_srcset'    => $img_srcset,
 					'img_sizes'     => $img_sizes,
-					'index_product' => $index_product
+					'index_product' => $index_product,
+					'img_alt'       => $alt
 				);
 
 				if ( isset( $slider_settings['skin_type'] ) ) {
@@ -333,6 +339,11 @@ class WC_Product_Slider_Legacy_API {
 			if ( function_exists( 'wp_get_attachment_image_sizes' ) ) {
 				$sizes = wp_get_attachment_image_sizes( $thumbid, $size );
 				$image_info['sizes'] = $sizes ? $sizes : '';
+			}
+
+			$alt = get_post_meta( $thumbid, '_wp_attachment_image_alt', true );
+			if ( ! empty( $alt ) ) {
+				$image_info['alt'] = $alt;
 			}
 		} else {
 			$image_info = WC_Product_Slider_Functions::get_template_image_file_info('no-image.gif');

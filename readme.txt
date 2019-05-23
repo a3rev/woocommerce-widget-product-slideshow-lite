@@ -1,18 +1,18 @@
-=== WooCommerce Widget Product Slider ===
+=== Product Widget Slider for WooCommerce ===
 
 Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
 Requires at least: 4.5
-Tested up to: 5.1.1
-Stable tag: 1.6.6
+Tested up to: 5.2.1
+Stable tag: 1.6.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Beautifully lightweight, mobile & tablet responsive WooCommerce Widget Product Slider plugin that packs a powerful marketing punch
+Beautifully lightweight, mobile & tablet responsive Product Widget Slider for WooCommerce plugin that packs a powerful marketing punch
 
 == DESCRIPTION ==
 
-WooCommerce Widget Product Slider enables you to create slick Product Sliders in any sidebar or widgetized area on your site. Home page, Footer, multiple sidebars.
+Product Widget Slider for WooCommerce enables you to create slick Product Sliders in any sidebar or widgetized area on your site. Home page, Footer, multiple sidebars.
 
 = KEY FEATURES =
 
@@ -47,16 +47,24 @@ Use the Woo Product Slider on your widget menu to add Product Sliders to any wid
 
 = PREMIUM VERSION =
 
-If you try WooCommerce Widget Product Slider and like it but find there is a feature it does not have ... there are 2 upgrade Premium versions available.
+If you try Widget Slider & Carousel for WooCommerce and like it but find there is a feature it does not have ... there are 2 upgrade Premium versions available.
 
-* [WooCommerce Product Slider](http://a3rev.com/shop/woocommerce-product-slider/)
-* [WooCommerce Carousel abs Slider](https://a3rev.com/shop/woocommerce-carousel-slider/)
+* [Premium Product Slider and Carousel](https://a3rev.com/shop/woocommerce-carousel-slider/)
 
 = CONTRIBUTE =
 
-When you download WooCommerce Widget Product Slider, you join our the a3rev Software community. Regardless of if you are a WordPress beginner or experienced developer if you are interested in contributing to the future development of this plugin head over to the WooCommerce Widget Product Slider[GitHub Repository](https://github.com/a3rev/woocommerce-widget-product-slideshow-lite) to find out how you can contribute.
+When you download Product Widget Slider for WooCommerce, you join our the a3rev Software community. Regardless of if you are a WordPress beginner or experienced developer if you are interested in contributing to the future development of this plugin head over to the WProduct Widget Slider for WooCommerce[GitHub Repository](https://github.com/a3rev/woocommerce-widget-product-slideshow-lite) to find out how you can contribute.
 
-Want to add a new language to WooCommerce Widget Product Slider! You can contribute via [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/woo-widget-product-slideshow)
+Want to add a new language? You can contribute via [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/woo-widget-product-slideshow)
+
+== Installation ==
+
+= Minimum Requirements =
+
+* WordPress 4.5
+* WooCommerce 3.0 and later.
+* PHP version 5.6.20 or greater
+* MySQL version 5.5 or greater
 
 
 == Screenshots ==
@@ -68,7 +76,7 @@ Want to add a new language to WooCommerce Widget Product Slider! You can contrib
 
 1. WP admin > Appearance > Widgets
 
-2. Drag and drop the Woo Product Slideshow into any widgetized area / sidebar.
+2. Drag and drop the Product Widget Slideshow into any widgetized area / sidebar.
 
 3. Configure settings on the widget and click save.
 
@@ -76,7 +84,7 @@ Want to add a new language to WooCommerce Widget Product Slider! You can contrib
 
 5. Go to WP-admin > Product Slider > Widget Skin
 
-6. Use the Sass #dynamic {stylesheet} setting to create your unique Widget skin layout and style.
+6. Use the settings to create your unique Widget skin layout and style.
 
 7. Have fun.
 
@@ -88,6 +96,12 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 1.6.7 - 2019/05/23 =
+* This maintenance upgrade adds support for ALT text on all Slider images plus compatibility with WordPress 5.2.1 and WooCommerce 3.6.3
+* Tweak - Add ALT text support for product slider images
+* Tweak - Test for compatibility with WordPress 5.2.1
+* Tweak - Test for compatibility with WooCommerce 3.6.3
 
 = 1.6.6 - 2019/04/26 =
 * This maintenance update has tweaks for compatibility with WordPress 5.2.0 and WooCommerce 3.6.0 major new versions whilst maintaining backward compatibility
@@ -403,6 +417,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 1.6.7 =
+This maintenance upgrade adds support for ALT text on all Product Slider images plus compatibility with WordPress 5.2.1 and WooCommerce 3.6.3
 
 = 1.6.6 =
 This maintenance update has tweaks for compatibility with WordPress 5.2.0 and WooCommerce 3.6.0 major new versions whilst maintaining backward compatibility

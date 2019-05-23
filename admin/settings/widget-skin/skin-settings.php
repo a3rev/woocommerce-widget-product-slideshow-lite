@@ -206,25 +206,10 @@ class WC_Product_Slider_Widget_Skin_Settings_Panel extends WC_Product_Slider_Adm
 		global $wc_product_slider_widget_skin_category_link_settings;
 		$this->form_fields = array_merge( $this->form_fields, $wc_product_slider_widget_skin_category_link_settings->form_fields );
 
-		$this->form_fields = array_merge( $this->form_fields, array(
-			array(
-            	'name' 		=> __( 'MOBILE DISPLAY PREMIUM', 'woo-widget-product-slideshow' ),
-                'type' 		=> 'heading',
-                'desc'		=> '<img class="rwd_image_maps" src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/premium-mobile-display.png" usemap="#mobileDisplayMap" style="width: auto; max-width: 100%;" border="0" />
-<map name="mobileDisplayMap" id="mobileDisplayMap">
-	<area shape="rect" coords="300,155,800,220" href="'.$this->pro_plugin_page_url.'" target="_blank" />
-</map>',
-                'id'		=> 'mobile_display_premium_box',
-                'first_open'=> true,
-                'is_box'	=> true,
-           	),
-        ) );
-
         $this->form_fields = apply_filters( $this->form_key . '_settings_fields', $this->form_fields );
 	}
 	
 	public function include_script() {
-		wp_enqueue_script( 'jquery-rwd-image-maps' );
 
 		global $wc_product_slider_widget_skin_dimensions_settings;
 		global $wc_product_slider_widget_skin_control_settings;

@@ -34,7 +34,8 @@ $(function(){
 			item_link: null,
 			product_price: '',
 			img_url: null,
-			index_product: 1
+			index_product: 1,
+			img_alt: ''
 		}
 	});
 

@@ -73,6 +73,7 @@ class WC_Product_Slider_Hook_Backbone
 			src="{{= img_url }}"
 			name="{{- item_title_html }}"
 			title=""
+			alt="{{= img_alt }}"
 			data-cycle-desc="{{ if ( item_link != "" ) { }} {{- cycle_desc }}{{ } }}"
             style="position:absolute; top:0; left:0; {{ if ( index_product > 1 ) { }} visibility:hidden; {{ } }} "
             {{ if ( typeof extra_attributes !== "undefined" && extra_attributes != "" ) { }} {{= extra_attributes }} {{ } }}
@@ -105,6 +106,7 @@ class WC_Product_Slider_Hook_Backbone
 				sizes="{{- sizes }}"
 				src="{{= img_url }}"
 				title="{{- item_title_html }}"
+				alt="{{= img_alt }}"
 				data-cycle-desc="{{- category_tag_link }}"
 				style="position:absolute; top:0; left:0; {{ if ( index_product > 1 ) { }} visibility:hidden; {{ } }} "
 			/>' ), false ); ?>
@@ -115,7 +117,7 @@ class WC_Product_Slider_Hook_Backbone
 				sizes="{{- sizes }}"
 				src="{{= img_url }}"
 				title="{{- item_title_html }}"
-				alt=""
+				alt="{{= img_alt }}"
 				style="position:absolute; top:0; left:0; {{ if ( index_product > 1 ) { }} visibility:hidden; {{ } }} "
 			/>' ), false ); ?>
 		{{ } }}

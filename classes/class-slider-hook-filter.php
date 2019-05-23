@@ -162,12 +162,6 @@ class WC_Product_Slider_Hook_Filter
             'css' => 'border: none; padding: 0; background: none;'
         );
 
-        $product_slider_box = '<a href="'.$wc_product_slider_admin_init->pro_plugin_page_url.'" target="_blank"><img src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/woocommerce-product-slider.jpg" /></a>';
-		$boxes[] = array(
-			'content' => $product_slider_box,
-			'css' => 'border: none; padding: 0; background: none;'
-		);
-
 		$carousel_box = '<a href="'.$wc_product_slider_admin_init->carousel_plugin_page_url.'" target="_blank"><img src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/woocommerce-carousel-slider.jpg" /></a>';
 		$boxes[] = array(
 			'content' => $carousel_box,
@@ -175,7 +169,7 @@ class WC_Product_Slider_Hook_Filter
 		);
 
 
-		$free_woocommerce_box = '<a href="https://profiles.wordpress.org/a3rev/#content-plugins" target="_blank" alt="'.__('Free WooCommerce Plugins', 'wooquickview').'"><img src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/free-woocommerce-plugins.png" /></a>';
+		$free_woocommerce_box = '<a href="https://profiles.wordpress.org/a3rev/#content-plugins" target="_blank" alt="'.__('Free WooCommerce Plugins', 'wooquickview').'"><img src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/free-woocommerce-plugins.jpg" /></a>';
 
 		$boxes[] = array(
 			'content' => $free_woocommerce_box,

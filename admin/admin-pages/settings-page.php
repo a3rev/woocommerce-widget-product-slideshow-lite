@@ -96,9 +96,6 @@ class WC_Product_Slider_Settings_Page extends WC_Product_Slider_Admin_UI
 
 		include_once( $this->admin_plugin_dir() . '/tabs/settings-tab.php' );
 		include_once( $this->admin_plugin_dir() . '/tabs/widget-skin-tab.php' );
-		include_once( $this->admin_plugin_dir() . '/tabs/card-skin-tab.php' );
-		include_once( $this->admin_plugin_dir() . '/tabs/touch-mobile-skin-tab.php' );
-		include_once( $this->admin_plugin_dir() . '/tabs/carousel-tab.php' );
 	}
 	
 	/*-----------------------------------------------------------------------------------*/
