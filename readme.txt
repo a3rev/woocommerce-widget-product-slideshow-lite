@@ -3,8 +3,8 @@
 Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
 Requires at least: 4.5
-Tested up to: 5.2.1
-Stable tag: 1.6.7
+Tested up to: 5.2.2
+Stable tag: 1.6.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -96,6 +96,12 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 1.6.8 - 2019/06/29 =
+* This is a maintenance upgrade to fix a potentially fatal error conflict with sites running PHP 7.3 plus compatibility with WordPress v 5.2.2 and WooCommerce 3.6.4
+* Tweak - Test for compatibility with WooCommerce 3.6.4
+* Tweak - Test for compatibility with WordPress 5.2.2
+* Fix - PHP warning continue targeting switch is equivalent to break for compatibility on PHP 7.3
 
 = 1.6.7 - 2019/05/23 =
 * This maintenance upgrade adds support for ALT text on all Slider images plus compatibility with WordPress 5.2.1 and WooCommerce 3.6.3
@@ -417,6 +423,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 1.6.8 =
+This is a maintenance upgrade to fix a potentially fatal error conflict with sites running PHP 7.3 plus compatibility with WordPress v 5.2.2 and WooCommerce 3.6.4
 
 = 1.6.7 =
 This maintenance upgrade adds support for ALT text on all Product Slider images plus compatibility with WordPress 5.2.1 and WooCommerce 3.6.3
