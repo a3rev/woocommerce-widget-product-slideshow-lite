@@ -2,7 +2,7 @@
 /*
 Plugin Name: Product Widget Slider for WooCommerce
 Description: Adds visually stunning WooCommerce product sliders to any widgeted area. Fully customizable, Widget Skin. Fully mobile responsive. Show any number of products from a selected product category.
-Version: 1.6.8
+Version: 1.6.9
 Author: a3rev Software
 Author URI: https://a3rev.com/
 Requires at least: 4.5
@@ -40,7 +40,7 @@ if (!defined("WC_PRODUCT_SLIDER_VERSION_URI")) define("WC_PRODUCT_SLIDER_VERSION
 if (!defined("WC_CAROUSEL_SLIDER_VERSION_URI")) define("WC_CAROUSEL_SLIDER_VERSION_URI", "http://a3rev.com/shop/woocommerce-carousel-slider/");
 
 define( 'WC_PRODUCT_SLIDER_KEY', 'woo_gallery_widget' );
-define( 'WC_PRODUCT_SLIDER_VERSION', '1.6.8' );
+define( 'WC_PRODUCT_SLIDER_VERSION', '1.6.9' );
 define( 'WC_PRODUCT_SLIDER_G_FONTS', true );
 
 /**

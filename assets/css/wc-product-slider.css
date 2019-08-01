@@ -5,6 +5,9 @@
 .nobr {
   white-space: nowrap;
 }
+.svg-inline--fa {
+  box-sizing: content-box !important;
+}
 .wc-product-slider-container {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -68,12 +71,16 @@
   margin-left: -10px;
   margin-right: -10px;
 }
-.wc-product-slider-container .a3-cycle-controls > span span {
+.wc-product-slider-container .a3-cycle-controls > span span,
+.wc-product-slider-container .a3-cycle-controls > span svg {
   color: #000;
   cursor: pointer;
   font-size: 30px;
   opacity: 0.6;
   padding: 0 10px;
+}
+.wc-product-slider-container .a3-cycle-controls > span svg {
+  box-sizing: content-box !important;
 }
 .wc-product-slider-container .a3-cycle-controls .cycle-prev-control {
   left: 5px;

@@ -3,6 +3,9 @@
 @charset "UTF-8";
 // Width variables (appears count calculates by raw css)
 @width2: 100%; // Appears 13 times
+.svg-inline--fa {
+    box-sizing: content-box !important;
+}
 .wc-product-slider-container {
     position:relative;
     .borderbox ();
@@ -58,12 +61,16 @@
             margin-left: -10px;
             margin-right: -10px;
 
-            span {
+            span, svg {
                 color: #000;
                 cursor: pointer;
                 font-size: 30px;
                 opacity: 0.6;
                 padding: 0 10px;
+            }
+
+            svg {
+                box-sizing: content-box !important;
             }
         }
 
