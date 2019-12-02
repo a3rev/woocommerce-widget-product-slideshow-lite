@@ -17,7 +17,14 @@
  * admin_sidebar_menu_css()
  * plugin_extra_links()
  */
-class WC_Product_Slider_Hook_Filter
+
+namespace A3Rev\WCPSlider;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+class Hook_Filter
 {
 
 	public static function frontend_scripts_register() {
@@ -162,7 +169,7 @@ class WC_Product_Slider_Hook_Filter
             'css' => 'border: none; padding: 0; background: none;'
         );
 
-		$carousel_box = '<a href="'.$wc_product_slider_admin_init->carousel_plugin_page_url.'" target="_blank"><img src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/woocommerce-carousel-slider.jpg" /></a>';
+		$carousel_box = '<a href="'.$wc_product_slider_admin_init->pro_plugin_page_url.'" target="_blank"><img src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/woocommerce-carousel-slider.jpg" /></a>';
 		$boxes[] = array(
 			'content' => $carousel_box,
 			'css' => 'border: none; padding: 0; background: none;'
@@ -195,4 +202,3 @@ class WC_Product_Slider_Hook_Filter
 		return $boxes;
 	}
 }
-?>

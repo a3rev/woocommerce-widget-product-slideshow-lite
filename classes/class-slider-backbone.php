@@ -7,7 +7,14 @@
  *
  * register_admin_screen()
  */
-class WC_Product_Slider_Hook_Backbone
+
+namespace A3Rev\WCPSlider;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+class Backbone
 {
 	public function __construct() {
 
@@ -143,7 +150,3 @@ class WC_Product_Slider_Hook_Backbone
     <?php
 	}
 }
-
-global $wc_product_slider_hook_backbone;
-$wc_product_slider_hook_backbone = new WC_Product_Slider_Hook_Backbone();
-?>

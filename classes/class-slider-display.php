@@ -1,9 +1,12 @@
 <?php
 /* "Copyright 2012 A3 Revolution Web Design" This software is distributed under the terms of GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 */
-// File Security Check
-if ( ! defined( 'ABSPATH' ) ) exit;
-?>
-<?php
+
+namespace A3Rev\WCPSlider;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
 /**
  * WooCommerce Product Slider Display
  *
@@ -13,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * get_title_widget_skin()
  * dispay_slider_card()
  */
-class WC_Product_Slider_Display
+class Display
 {
 
 	public static function dispay_slider_widget( $slider_id = '', $slider_settings = array(), $category_link = '', $tag_link = '' ) {
@@ -24,8 +27,7 @@ class WC_Product_Slider_Display
 
 		$is_used_mobile_skin = false;
 
-		require_once WC_PRODUCT_SLIDER_DIR . '/classes/class-slider-mobile-display.php';
-		$slider_output = WC_Product_Slider_Mobile_Display::mobile_dispay_slider( $slider_id, $is_used_mobile_skin , $slider_settings, $category_link, $tag_link );
+		$slider_output = Mobile_Display::mobile_dispay_slider( $slider_id, $is_used_mobile_skin , $slider_settings, $category_link, $tag_link );
 
 		$caption_fx_out = 'fadeOut';
 		$caption_fx_in = 'fadeIn';
@@ -35,7 +37,7 @@ class WC_Product_Slider_Display
 		$caption_class = '#cycle-widget-skin-caption-' . $unique_id;
 		$overlay_class = '#cycle-widget-skin-overlay-' . $unique_id;
 
-		$slider_transition_data 		= WC_Product_Slider_Functions::get_slider_transition( $slider_settings['widget_effect'], $slider_settings );
+		$slider_transition_data 		= Functions::get_slider_transition( $slider_settings['widget_effect'], $slider_settings );
 		$fx 							= $slider_transition_data['fx'];
 		$transition_attributes 			= $slider_transition_data['transition_attributes'];
 		$timeout 						= $slider_transition_data['timeout'];
@@ -45,7 +47,7 @@ class WC_Product_Slider_Display
 		$dynamic_tall = 'false';
 		if ( $is_slider_tall_dynamic == 1 ) $dynamic_tall = 'container';
 
-        WC_Product_Slider_Hook_Filter::include_slider_widget_scripts( $slider_transition_data );
+        Hook_Filter::include_slider_widget_scripts( $slider_transition_data );
 
 		ob_start();
 	?>
@@ -141,4 +143,3 @@ class WC_Product_Slider_Display
 	}
 
 }
-?>

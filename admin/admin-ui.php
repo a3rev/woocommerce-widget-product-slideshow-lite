@@ -31,7 +31,7 @@ class WC_Product_Slider_Admin_UI
 	 * You must change to correct plugin name that you are working
 	 */
 
-	public $framework_version      = '2.1.0';
+	public $framework_version      = '2.2.0';
 	public $plugin_name            = WC_PRODUCT_SLIDER_KEY;
 	public $plugin_path            = WC_PRODUCT_SLIDER_NAME;
 	public $google_api_key_option  = '';
@@ -54,9 +54,7 @@ class WC_Product_Slider_Admin_UI
 	 * @var string
 	 * You must change to correct pro plugin page url on a3rev site
 	 */
-	public $pro_plugin_page_url = 'https://a3rev.com/shop/woocommerce-product-slider/';
-
-	public $carousel_plugin_page_url = 'https://a3rev.com/shop/woocommerce-carousel-slider/';
+	public $pro_plugin_page_url = 'https://a3rev.com/shop/woocommerce-carousel-slider/';
 
 	/**
 	 * @var string
@@ -176,7 +174,7 @@ class WC_Product_Slider_Admin_UI
 
 			update_option( $this->google_map_api_key_option . '_enable', 1 );
 
-			$option_value = trim( $_POST[ $this->google_map_api_key_option ] );
+			$option_value = trim( sanitize_text_field( $_POST[ $this->google_map_api_key_option ] ) );
 
 			$old_google_map_api_key_option = get_option( $this->google_map_api_key_option );
 
@@ -194,7 +192,7 @@ class WC_Product_Slider_Admin_UI
 
 			update_option( $this->google_map_api_key_option . '_enable', 0 );
 
-			$option_value = trim( $_POST[ $this->google_map_api_key_option ] );
+			$option_value = trim( sanitize_text_field( $_POST[ $this->google_map_api_key_option ] ) );
 			update_option( $this->google_map_api_key_option, $option_value );
 
 			if ( 0 != $old_google_map_api_key_enable ) {
@@ -219,7 +217,7 @@ class WC_Product_Slider_Admin_UI
 									. "\n\n" . __( 'Quick Video showing the main (not all) enhanced features that are built into the WooCommerce Carousel and Slider version', 'woo-widget-product-slideshow' ),
 				'right_title'  => __( 'Developer Support and Premium Features', 'woo-widget-product-slideshow' ),
 				'right_text'   => __( 'Limited Time Offer. Purchase the Premium Version Lifetime License. That is a Lifetime of maintenance updates, feature upgrades and developer support for a once only fee. Offer ending soon.', 'woo-widget-product-slideshow' )
-									. "\n\n" . '<a target="_blank" href="'.$this->carousel_plugin_page_url.'" class="button-primary">' . __( 'Get Premium Features and Support', '' ) . '</a>',
+									. "\n\n" . '<a target="_blank" href="'.$this->pro_plugin_page_url.'" class="button-primary">' . __( 'Get Premium Features and Support', '' ) . '</a>',
 			);
 
 		return $premium_video_data;
@@ -370,7 +368,7 @@ class WC_Product_Slider_Admin_UI
 			. __( 'Advanced Settings - Upgrade to the <a href="%s" target="_blank">%s License</a> to activate these settings.', 'woo-widget-product-slideshow' ) 
 			. '</div>'
 			, apply_filters( $this->plugin_name . '_' . $setting_id . '_pro_plugin_page_url', apply_filters( $this->plugin_name . '_pro_plugin_page_url', $this->pro_plugin_page_url ) )
-			, apply_filters( $this->plugin_name . '_' . $setting_id . '_pro_version_name', apply_filters( $this->plugin_name . '_pro_version_name', __( 'Pro Version', 'woo-widget-product-slideshow' ) ) )
+			, apply_filters( $this->plugin_name . '_' . $setting_id . '_pro_version_name', apply_filters( $this->plugin_name . '_pro_version_name', __( 'Carousel & Slider Version', 'woo-widget-product-slideshow' ) ) )
 		);
 
 		$upgrade_top_message = apply_filters( $this->plugin_name . '_upgrade_top_message', $upgrade_top_message, $setting_id );

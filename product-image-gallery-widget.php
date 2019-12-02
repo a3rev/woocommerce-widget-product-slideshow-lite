@@ -2,15 +2,15 @@
 /*
 Plugin Name: Product Widget Slider for WooCommerce
 Description: Adds visually stunning WooCommerce product sliders to any widgeted area. Fully customizable, Widget Skin. Fully mobile responsive. Show any number of products from a selected product category.
-Version: 1.6.9
+Version: 1.7.0
 Author: a3rev Software
 Author URI: https://a3rev.com/
 Requires at least: 4.5
-Tested up to: 5.2.2
+Tested up to: 5.3
 Text Domain: woo-widget-product-slideshow
 Domain Path: /languages
 WC requires at least: 2.0.0
-WC tested up to: 3.6.4
+WC tested up to: 3.8.1
 License: GPLv2 or later
 
 	WooCommerce Widget Product Slider Lite plugin.
@@ -40,8 +40,25 @@ if (!defined("WC_PRODUCT_SLIDER_VERSION_URI")) define("WC_PRODUCT_SLIDER_VERSION
 if (!defined("WC_CAROUSEL_SLIDER_VERSION_URI")) define("WC_CAROUSEL_SLIDER_VERSION_URI", "http://a3rev.com/shop/woocommerce-carousel-slider/");
 
 define( 'WC_PRODUCT_SLIDER_KEY', 'woo_gallery_widget' );
-define( 'WC_PRODUCT_SLIDER_VERSION', '1.6.9' );
+define( 'WC_PRODUCT_SLIDER_VERSION', '1.7.0' );
 define( 'WC_PRODUCT_SLIDER_G_FONTS', true );
+
+if ( version_compare( PHP_VERSION, '5.6.0', '>=' ) ) {
+	require __DIR__ . '/vendor/autoload.php';
+
+	// Product Slider API
+	global $wc_product_slider_legacy_api;
+	$wc_product_slider_legacy_api = new \A3Rev\WCPSlider\Legacy_API();
+
+	global $wc_product_slider_hook_backbone;
+	$wc_product_slider_hook_backbone = new \A3Rev\WCPSlider\Backbone();
+
+	global $wc_product_slider_wpml;
+	$wc_product_slider_wpml = new \A3Rev\WCPSlider\WPML();
+
+} else {
+	return;
+}
 
 /**
  * Load Localisation files.
@@ -60,9 +77,6 @@ function wc_product_slider_plugin_textdomain() {
 	load_plugin_textdomain( 'woo-widget-product-slideshow', false, WC_PRODUCT_SLIDER_FOLDER . '/languages/' );
 }
 
-// Product Slider API
-include ('includes/class-legacy-api.php');
-
 include ('admin/admin-ui.php');
 include ('admin/admin-interface.php');
 
@@ -71,24 +85,9 @@ include ('admin/admin-pages/settings-page.php');
 include ('admin/admin-init.php');
 include ('admin/less/sass.php');
 
-include 'classes/class-slider-display.php';
-include 'classes/class-slider-functions.php';
-include 'classes/class-slider-hook-filter.php';
-
-include 'shortcodes/class-slider-shortcodes.php';
-
-include 'classes/class-slider-backbone.php';
-
-include 'widget/class-slider-widget.php';
-include 'widget/class-carousel-widget.php';
-
-include 'classes/class-slider-wpml.php';
-
 include 'admin/plugin-init.php';
 
 /**
  * Call when the plugin is activated
  */
 register_activation_hook(__FILE__, 'wc_product_slider_activated');
-
-?>

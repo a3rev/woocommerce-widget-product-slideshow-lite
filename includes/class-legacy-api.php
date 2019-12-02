@@ -5,9 +5,13 @@
  *
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+namespace A3Rev\WCPSlider;
 
-class WC_Product_Slider_Legacy_API {
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+class Legacy_API {
 
 	/** @var string $base the route base */
 	protected $base = '/wc_product_slider_legacy_api';
@@ -44,16 +48,16 @@ class WC_Product_Slider_Legacy_API {
 		$woocommerce_db_version = get_option( 'woocommerce_db_version', null );
 		$slider_lang = '';
 		
-		$slider_query_string = base64_decode( $_REQUEST['slider_id'] );
+		$slider_query_string = base64_decode( sanitize_text_field( $_REQUEST['slider_id'] ) );
 		$slider_settings = array();
-		if ( isset( $_REQUEST['slider_settings'] ) ) $slider_settings = $_REQUEST['slider_settings'];
+		if ( isset( $_REQUEST['slider_settings'] ) ) $slider_settings = array_map( 'sanitize_text_field', $_REQUEST['slider_settings'] );
 		
 		$slider_data = array();
 		parse_str( $slider_query_string, $slider_data );
 		
 		extract( $slider_data );
 
-		if ( isset( $_POST['slider_lang'] ) ) $slider_lang = $_POST['slider_lang'];
+		if ( isset( $_POST['slider_lang'] ) ) $slider_lang = sanitize_text_field( $_POST['slider_lang'] );
 
 		$product_results = $this->get_products_cat( $category_id, $filter_type, 'date', $number_products, 0, $slider_lang );
 		
@@ -74,7 +78,7 @@ class WC_Product_Slider_Legacy_API {
 				$index_product++;
 				$product_id = $product->ID;
 				if ( version_compare( $woocommerce_db_version, '2.0', '<' ) && null !== $woocommerce_db_version ) {
-					$product_data = new WC_Product( $product_id ); 
+					$product_data = new \WC_Product( $product_id ); 
 				} elseif ( version_compare( WC()->version, '2.2.0', '<' ) ) {
 					$product_data = get_product( $product_id );
 				} else {
@@ -124,7 +128,7 @@ class WC_Product_Slider_Legacy_API {
 						// For Widget
 						default:
 							if ( isset( $slider_data['widget_effect'] ) && $slider_data['widget_effect'] == 'random' ) {
-								$slide_data['extra_attributes'] = WC_Product_Slider_Functions::get_transition_random( $slider_settings );
+								$slide_data['extra_attributes'] = Functions::get_transition_random( $slider_settings );
 							}
 						break;	
 					}
@@ -346,12 +350,9 @@ class WC_Product_Slider_Legacy_API {
 				$image_info['alt'] = $alt;
 			}
 		} else {
-			$image_info = WC_Product_Slider_Functions::get_template_image_file_info('no-image.gif');
+			$image_info = Functions::get_template_image_file_info('no-image.gif');
 		}
 
 		return $image_info;
 	}
 }
-
-global $wc_product_slider_legacy_api;
-$wc_product_slider_legacy_api = new WC_Product_Slider_Legacy_API();

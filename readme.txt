@@ -3,8 +3,8 @@
 Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
 Requires at least: 4.5
-Tested up to: 5.2.2
-Stable tag: 1.6.9
+Tested up to: 5.3
+Stable tag: 1.7.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -96,6 +96,16 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 1.7.0 - 2019/12/02 =
+* This feature release upgrades the plugins PHP to Composer Dependency Manager, a full security review plus compatibility with WordPress 5.3.0 and WooCommerce 3.8.1 
+* Feature - Plugin fully refactored to Composer for cleaner and faster PHP code
+* Tweak - Remove the hard coded PHP error_reporting display errors false from compile sass to css
+* Tweak - Test for compatibility with WordPress 5.3.0
+* Tweak - Test for compatibility with WooCommerce 3.8.1
+* Tweak - Update premium version text and links on widget
+* Dev - Replace file_get_contents with HTTP API wp_remote_get
+* Dev - Ensure that all inputs are sanitized and all outputs are escaped
 
 = 1.6.9 - 2019/08/01 =
 * This maintenance upgrade is to fix a style conflict with fontawesome icons
@@ -427,6 +437,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 1.7.0 =
+This feature release upgrades the plugins PHP to Composer Dependency Manager, a full security review plus compatibility with WordPress 5.3.0 and WooCommerce 3.8.1
 
 = 1.6.9 =
 This maintenance upgrade is to fix a style conflict with fontawesome icons

@@ -3,11 +3,14 @@
  * a3 Slider WPML Class
  *
  */
+
+namespace A3Rev\WCPSlider;
+
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+    exit; // Exit if accessed directly
 }
 
-class WC_Product_Slider_WPML
+class WPML
 {
 	public $plugin_wpml_name = 'WooCommerce Widget Product Slider';
 
@@ -128,21 +131,3 @@ class WC_Product_Slider_WPML
 	}
 
 }
-
-global $wc_product_slider_wpml;
-$wc_product_slider_wpml = new WC_Product_Slider_WPML();
-
-function wc_product_slider_ict_t_e( $name, $string ) {
-	global $wc_product_slider_wpml;
-	$string = ( function_exists('icl_t') ? icl_t( $wc_product_slider_wpml->plugin_wpml_name, $name, $string ) : $string );
-
-	echo $string;
-}
-
-function wc_product_slider_ict_t__( $name, $string ) {
-	global $wc_product_slider_wpml;
-	$string = ( function_exists('icl_t') ? icl_t( $wc_product_slider_wpml->plugin_wpml_name, $name, $string ) : $string );
-
-	return $string;
-}
-?>

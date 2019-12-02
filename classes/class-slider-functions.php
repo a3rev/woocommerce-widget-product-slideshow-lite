@@ -11,7 +11,14 @@
  * plugins_loaded()
  * create_page()
  */
-class WC_Product_Slider_Functions
+
+namespace A3Rev\WCPSlider;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+class Functions
 {
 
 	/**
@@ -190,4 +197,3 @@ class WC_Product_Slider_Functions
 		return $transition_effect;
 	}
 }
-?>

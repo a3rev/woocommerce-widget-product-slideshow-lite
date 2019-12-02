@@ -9,7 +9,16 @@
  * update()
  * form()
  */
-class WC_Product_Slider_Widget extends WP_Widget
+
+namespace A3Rev\WCPSlider\Widget;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+use A3Rev\WCPSlider;
+
+class Slider extends \WP_Widget
 {
 	function __construct() {
 		$widget_ops = array(
@@ -91,7 +100,7 @@ class WC_Product_Slider_Widget extends WP_Widget
 
 		if ( $widget_effect == 'random' ) $slider_id .= '&widget_effect='.$widget_effect;
 		$slider_id = base64_encode( $slider_id );
-		$output .= WC_Product_Slider_Display::dispay_slider_widget( $slider_id, $slider_settings, $category_link, $tag_link );
+		$output .= WCPSlider\Display::dispay_slider_widget( $slider_id, $slider_settings, $category_link, $tag_link );
 
 		$output .= '</div>';
 		
@@ -145,7 +154,7 @@ class WC_Product_Slider_Widget extends WP_Widget
 <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e( 'Title:', 'woo-widget-product-slideshow' ); ?></label> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></p>
 
 <fieldset id="wc_product_slider_upgrade_area">
-<legend><?php _e('Upgrade to','woo-widget-product-slideshow' ); ?> <a href="<?php echo WC_PRODUCT_SLIDER_VERSION_URI; ?>" target="_blank"><?php _e('Product Slider Version', 'woo-widget-product-slideshow' ); ?></a> <?php _e('to activate', 'woo-widget-product-slideshow' ); ?></legend>
+<legend><?php _e('Upgrade to','woo-widget-product-slideshow' ); ?> <a href="<?php echo WC_PRODUCT_SLIDER_VERSION_URI; ?>" target="_blank"><?php _e('Carousel & Slider Version', 'woo-widget-product-slideshow' ); ?></a> <?php _e('to activate', 'woo-widget-product-slideshow' ); ?></legend>
 <p>
 	<label for="<?php echo $this->get_field_id('show_type'); ?>"><strong><?php _e( 'Show Type:', 'woo-widget-product-slideshow' ); ?></strong></label>
     <select class="wc_product_slider_show_type" id="<?php echo $this->get_field_id('show_type'); ?>" name="<?php echo $this->get_field_name('show_type'); ?>" >
@@ -191,7 +200,7 @@ class WC_Product_Slider_Widget extends WP_Widget
 </p>
 
 <fieldset id="wc_product_slider_upgrade_area">
-<legend><?php _e('Upgrade to','woo-widget-product-slideshow' ); ?> <a href="<?php echo WC_PRODUCT_SLIDER_VERSION_URI; ?>" target="_blank"><?php _e('Product Slider Version', 'woo-widget-product-slideshow' ); ?></a> <?php _e('to activate', 'woo-widget-product-slideshow' ); ?></legend>
+<legend><?php _e('Upgrade to','woo-widget-product-slideshow' ); ?> <a href="<?php echo WC_PRODUCT_SLIDER_VERSION_URI; ?>" target="_blank"><?php _e('Carousel & Slider Version', 'woo-widget-product-slideshow' ); ?></a> <?php _e('to activate', 'woo-widget-product-slideshow' ); ?></legend>
 <p><label><strong><?php _e( 'Skin Type:', 'woo-widget-product-slideshow' ); ?></strong></label>
 	<label><input type="radio" class="wc_product_slider_skin_type" data-id="<?php echo $this->get_field_id('skin_type'); ?>" name="<?php echo $this->get_field_name('skin_type'); ?>" value="widget" checked="checked" /> <?php _e( 'WIDGET', 'woo-widget-product-slideshow' ); ?></label> &nbsp;&nbsp;&nbsp;
 	<label><input type="radio" class="wc_product_slider_skin_type" data-id="<?php echo $this->get_field_id('skin_type'); ?>" name="<?php echo $this->get_field_name('skin_type'); ?>" value="card" /> <?php _e( 'CARD', 'woo-widget-product-slideshow' ); ?></label>
@@ -201,7 +210,7 @@ class WC_Product_Slider_Widget extends WP_Widget
     <p><label><strong><?php _e('Effects Type:', 'woo-widget-product-slideshow' ); ?></strong></label>
         <select>
         <?php
-        $transitions_list = WC_Product_Slider_Functions::card_slider_transitions_list();
+        $transitions_list = WCPSlider\Functions::card_slider_transitions_list();
         foreach ( $transitions_list as $effect_key => $effect_name ) {
         ?>
             <option value="<?php echo $effect_key; ?>"><?php echo $effect_name; ?></option>
@@ -217,7 +226,7 @@ class WC_Product_Slider_Widget extends WP_Widget
     <p><label><strong><?php _e('Effects Type:', 'woo-widget-product-slideshow' ); ?></strong></label>
         <select id="<?php echo $this->get_field_id('widget_effect'); ?>" name="<?php echo $this->get_field_name('widget_effect'); ?>" >
         <?php
-        $transitions_list = WC_Product_Slider_Functions::slider_transitions_list();
+        $transitions_list = WCPSlider\Functions::slider_transitions_list();
         foreach ( $transitions_list as $effect_key => $effect_name ) {
         ?>
             <option value="<?php echo $effect_key; ?>" <?php selected( $effect_key, $widget_effect ); ?>><?php echo $effect_name; ?></option>
@@ -255,4 +264,3 @@ class WC_Product_Slider_Widget extends WP_Widget
 <?php
 	}
 }
-?>

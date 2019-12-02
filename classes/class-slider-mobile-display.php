@@ -1,5 +1,11 @@
 <?php
-class WC_Product_Slider_Mobile_Display
+namespace A3Rev\WCPSlider;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+class Mobile_Display
 {	
 	public static function mobile_dispay_slider( $slider_id = '', $is_used_mobile_skin = false , $slider_settings = array(), $category_link = '', $tag_link = '' ) {
 
@@ -22,7 +28,7 @@ class WC_Product_Slider_Mobile_Display
 		$slider_settings['category_link'] = $category_link;
 		$slider_settings['tag_link'] = $tag_link;
 				
-		add_action( 'wp_footer', array( 'WC_Product_Slider_Hook_Filter', 'include_slider_mobile_scripts' ) );
+		add_action( 'wp_footer', array( '\A3Rev\WCPSlider\Hook_Filter', 'include_slider_mobile_scripts' ) );
 
 		$caption_fx_out = 'fadeOut';
 		$caption_fx_in = 'fadeIn';
@@ -90,4 +96,3 @@ class WC_Product_Slider_Mobile_Display
 	}
 	
 }
-?>

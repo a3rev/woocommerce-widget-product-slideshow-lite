@@ -9,7 +9,14 @@
  * update()
  * form()
  */
-class WC_Product_Slider_Carousel_Widget extends WP_Widget
+
+namespace A3Rev\WCPSlider\Widget;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+class Carousel extends \WP_Widget
 {
 	function __construct() {
 		$widget_ops = array(
@@ -140,4 +147,3 @@ class WC_Product_Slider_Carousel_Widget extends WP_Widget
 <?php
 	}
 }
-?>

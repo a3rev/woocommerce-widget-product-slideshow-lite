@@ -11,7 +11,14 @@
  * rslider_generator_popup()
  * parse_shortcode_wc_product_slider()
  */
-class WC_Product_Slider_Shortcode
+
+namespace A3Rev\WCPSlider;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+class Shortcode
 {
 
 	public function __construct () {
@@ -39,7 +46,7 @@ class WC_Product_Slider_Shortcode
 		?>
 		<div id="wc-product-slider-wrap" style="display:none">
 
-        	<fieldset id="wc_product_slider_upgrade_area"><legend><?php _e( 'Insert WC Product Slider', 'woo-widget-product-slideshow' ); ?> - <?php _e('Upgrade to','woo-widget-product-slideshow' ); ?> <a href="<?php echo WC_PRODUCT_SLIDER_VERSION_URI; ?>" target="_blank"><?php _e('Product Slider Version', 'woo-widget-product-slideshow' ); ?></a> <?php _e('to activate', 'woo-widget-product-slideshow' ); ?></legend>
+        	<fieldset id="wc_product_slider_upgrade_area"><legend><?php _e( 'Insert WC Product Slider', 'woo-widget-product-slideshow' ); ?> - <?php _e('Upgrade to','woo-widget-product-slideshow' ); ?> <a href="<?php echo WC_PRODUCT_SLIDER_VERSION_URI; ?>" target="_blank"><?php _e('Carousel & Slider Version', 'woo-widget-product-slideshow' ); ?></a> <?php _e('to activate', 'woo-widget-product-slideshow' ); ?></legend>
             <div id="wc-product-slider-content" class="wc-product-slider-content wc-product-slider-shortcode-popup-container" style="text-align:left;">
             	<p>
                     <label for="wc_product_slider_show_type"><strong><?php _e( 'Show Type:', 'woo-widget-product-slideshow' ); ?></strong></label>
@@ -106,7 +113,7 @@ class WC_Product_Slider_Shortcode
                         <p><label for="wc_product_slider_widget_effect"><strong><?php _e('Effects Type:', 'woo-widget-product-slideshow' ); ?></strong></label>
                             <select id="wc_product_slider_widget_effect" name="wc_product_slider_widget_effect" >
                             <?php
-                            $transitions_list = WC_Product_Slider_Functions::slider_transitions_list();
+                            $transitions_list = Functions::slider_transitions_list();
                             foreach ( $transitions_list as $effect_key => $effect_name ) {
                             ?>
                                 <option value="<?php echo $effect_key; ?>" <?php if ( $effect_key == 'fade' ) { echo 'selected="selected"'; } ?>><?php echo $effect_name; ?></option>
@@ -121,7 +128,7 @@ class WC_Product_Slider_Shortcode
                         <p><label><strong><?php _e('Effects Type:', 'woo-widget-product-slideshow' ); ?></strong></label>
                             <select id="wc_product_slider_card_effect" name="wc_product_slider_card_effect" >
                             <?php
-                            $transitions_list = WC_Product_Slider_Functions::card_slider_transitions_list();
+                            $transitions_list = Functions::card_slider_transitions_list();
                             foreach ( $transitions_list as $effect_key => $effect_name ) {
                             ?>
                                 <option value="<?php echo $effect_key; ?>" <?php if ( $effect_key == 'fade' ) { echo 'selected="selected"'; } ?>><?php echo $effect_name; ?></option>
@@ -261,4 +268,3 @@ class WC_Product_Slider_Shortcode
 	}
 
 }
-?>

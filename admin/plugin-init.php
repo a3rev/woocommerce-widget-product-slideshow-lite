@@ -31,41 +31,42 @@ function wc_product_slider_init() {
 add_action( 'init', 'wc_product_slider_init' );
 
 // Add custom style to dashboard
-add_action( 'admin_enqueue_scripts', array( 'WC_Product_Slider_Hook_Filter', 'a3_wp_admin' ) );
+add_action( 'admin_enqueue_scripts', array( '\A3Rev\WCPSlider\Hook_Filter', 'a3_wp_admin' ) );
 
 // Add text on right of Visit the plugin on Plugin manager page
-add_filter( 'plugin_row_meta', array('WC_Product_Slider_Hook_Filter', 'plugin_extra_links'), 10, 2 );
+add_filter( 'plugin_row_meta', array('\A3Rev\WCPSlider\Hook_Filter', 'plugin_extra_links'), 10, 2 );
 
 // Add admin sidebar menu css
-add_action( 'admin_enqueue_scripts', array( 'WC_Product_Slider_Hook_Filter', 'admin_sidebar_menu_css' ) );
+add_action( 'admin_enqueue_scripts', array( '\A3Rev\WCPSlider\Hook_Filter', 'admin_sidebar_menu_css' ) );
 
 
 global $wc_product_slider_admin_init;
 $wc_product_slider_admin_init->init();
 
 // Add upgrade notice to Dashboard pages
-add_filter( $wc_product_slider_admin_init->plugin_name . '_plugin_extension_boxes', array( 'WC_Product_Slider_Hook_Filter', 'plugin_extension_box' ) );
+add_filter( $wc_product_slider_admin_init->plugin_name . '_plugin_extension_boxes', array( '\A3Rev\WCPSlider\Hook_Filter', 'plugin_extension_box' ) );
 
 // Add extra link on left of Deactivate link on Plugin manager page
-add_action('plugin_action_links_' . WC_PRODUCT_SLIDER_NAME, array( 'WC_Product_Slider_Hook_Filter', 'settings_plugin_links' ) );
+add_action('plugin_action_links_' . WC_PRODUCT_SLIDER_NAME, array( '\A3Rev\WCPSlider\Hook_Filter', 'settings_plugin_links' ) );
 
-add_action( 'wp_enqueue_scripts', array( 'WC_Product_Slider_Hook_Filter', 'frontend_scripts_register' ), 20 );
+add_action( 'wp_enqueue_scripts', array( '\A3Rev\WCPSlider\Hook_Filter', 'frontend_scripts_register' ), 20 );
 
 // Include google fonts into header
-add_action( 'wp_enqueue_scripts', array( 'WC_Product_Slider_Hook_Filter', 'add_google_fonts'), 9 );
+add_action( 'wp_enqueue_scripts', array( '\A3Rev\WCPSlider\Hook_Filter', 'add_google_fonts'), 9 );
 
-$GLOBALS['wc_product_slider_shortcode'] = new WC_Product_Slider_Shortcode();
+global $wc_product_slider_shortcode;
+$wc_product_slider_shortcode = new \A3Rev\WCPSlider\Shortcode();
 
 function wc_product_slider_register_widgets() {
-	register_widget("WC_Product_Slider_Widget");
-	register_widget("WC_Product_Slider_Carousel_Widget");
+	register_widget( '\A3Rev\WCPSlider\Widget\Slider' );
+	register_widget( '\A3Rev\WCPSlider\Widget\Carousel' );
 }
 
 // Registry Widgets
 add_action( 'widgets_init', 'wc_product_slider_register_widgets' );
 
 if ( in_array( basename( $_SERVER['PHP_SELF'] ), array( 'widgets.php' ) ) ) {
-	add_action( 'admin_footer', array( 'WC_Product_Slider_Hook_Filter', 'include_admin_script' ) );
+	add_action( 'admin_footer', array( '\A3Rev\WCPSlider\Hook_Filter', 'include_admin_script' ) );
 }
 
 // Check upgrade functions
@@ -108,4 +109,16 @@ function wc_product_slider_lite_upgrade_plugin () {
 	update_option('woo_gallery_widget_lite_version', WC_PRODUCT_SLIDER_VERSION );
 }
 
-?>
+function wc_product_slider_ict_t_e( $name, $string ) {
+	global $wc_product_slider_wpml;
+	$string = ( function_exists('icl_t') ? icl_t( $wc_product_slider_wpml->plugin_wpml_name, $name, $string ) : $string );
+
+	echo $string;
+}
+
+function wc_product_slider_ict_t__( $name, $string ) {
+	global $wc_product_slider_wpml;
+	$string = ( function_exists('icl_t') ? icl_t( $wc_product_slider_wpml->plugin_wpml_name, $name, $string ) : $string );
+
+	return $string;
+}
