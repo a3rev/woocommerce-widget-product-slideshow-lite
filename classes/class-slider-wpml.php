@@ -98,13 +98,12 @@ class WPML
 
 	// Registry Dynamic String for WPML
 	public function wpml_register_dynamic_string() {
-		global $wc_product_slider_admin_interface;
 
-		$wc_product_slider_card_skin_settings = array_map( array( $wc_product_slider_admin_interface, 'admin_stripslashes' ), get_option( 'wc_product_slider_card_skin_settings', array() ) );
+		$wc_product_slider_card_skin_settings = array_map( array( $GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_interface'], 'admin_stripslashes' ), get_option( 'wc_product_slider_card_skin_settings', array() ) );
 
-		$wc_product_slider_widget_skin_settings = array_map( array( $wc_product_slider_admin_interface, 'admin_stripslashes' ), get_option( 'wc_product_slider_widget_skin_settings', array() ) );
+		$wc_product_slider_widget_skin_settings = array_map( array( $GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_interface'], 'admin_stripslashes' ), get_option( 'wc_product_slider_widget_skin_settings', array() ) );
 
-		$wc_product_slider_mobile_skin_settings = array_map( array( $wc_product_slider_admin_interface, 'admin_stripslashes' ), get_option( 'wc_product_slider_mobile_skin_settings', array() ) );
+		$wc_product_slider_mobile_skin_settings = array_map( array( $GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_interface'], 'admin_stripslashes' ), get_option( 'wc_product_slider_mobile_skin_settings', array() ) );
 
 		// Card Skin Settings
 		do_action( 'wpml_register_single_string', $this->plugin_wpml_name, 'Card Skin - Single Category Text', $wc_product_slider_card_skin_settings['single_category_text'] );

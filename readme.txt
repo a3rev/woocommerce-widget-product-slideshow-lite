@@ -2,9 +2,9 @@
 
 Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
-Requires at least: 4.5
-Tested up to: 5.3
-Stable tag: 1.7.0
+Requires at least: 5.0
+Tested up to: 5.4
+Stable tag: 1.7.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,10 +61,10 @@ Want to add a new language? You can contribute via [translate.wordpress.org](htt
 
 = Minimum Requirements =
 
-* WordPress 4.5
+* WordPress 5.0
 * WooCommerce 3.0 and later.
-* PHP version 5.6.20 or greater
-* MySQL version 5.5 or greater
+* PHP version 7.0 or greater
+* MySQL version 5.6 or greater OR MariaDB version 10.0 or greater
 
 
 == Screenshots ==
@@ -96,6 +96,17 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 1.7.1 - 2020/04/01 =
+* This maintenance release is for compatibility with WordPress 5.4, WooCommerce 4.0.1, Travis CI build unit test for compliance with WordPress PHP coding standards and PHP tweaks for compatibility with PHP v 7.0 to 7.4
+* Tweak - Test for compatibility with WordPress 5.4
+* Tweak - Test for compatibility with WooCommerce 4.0.1
+* Tweak - Plugin Framework fully refactored to Composer for cleaner code and faster PHP code on admin panels
+* Tweak - Update plugin for compatibility with new version of plugin Framework
+* Fix - Update global ${$this- to $GLOBALS[$this to resolve 7.0+ PHP warnings
+* Fix - Update global ${$option to $GLOBALS[$option to resolve 7.0+ PHP warnings
+* Fix - Update less PHP lib that use square brackets [] instead of curly braces {} for Array, depreciated in PHP 7.4
+* Fix - Validate to not use get_magic_quotes_gpc function that are depreciated in PHP 7.4
 
 = 1.7.0 - 2019/12/02 =
 * This feature release upgrades the plugins PHP to Composer Dependency Manager, a full security review plus compatibility with WordPress 5.3.0 and WooCommerce 3.8.1 
@@ -437,6 +448,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 1.7.1 =
+This maintenance release is for compatibility with WordPress 5.4, WooCommerce 4.0.1, Travis CI build unit test for compliance with WordPress PHP coding standards and PHP tweaks for compatibility with PHP v 7.0 to 7.4
 
 = 1.7.0 =
 This feature release upgrades the plugins PHP to Composer Dependency Manager, a full security review plus compatibility with WordPress 5.3.0 and WooCommerce 3.8.1

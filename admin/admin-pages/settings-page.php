@@ -1,9 +1,13 @@
 <?php
 /* "Copyright 2012 A3 Revolution Web Design" This software is distributed under the terms of GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 */
+
+namespace A3Rev\WCPSlider\FrameWork\Pages {
+
+use A3Rev\WCPSlider\FrameWork;
+
 // File Security Check
-if ( ! defined( 'ABSPATH' ) ) exit;
-?>
-<?php
+if ( ! defined( 'ABSPATH' ) ) exit; 
+
 /*-----------------------------------------------------------------------------------
 Slider Widget Skin Settings Page
 
@@ -21,7 +25,7 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WC_Product_Slider_Settings_Page extends WC_Product_Slider_Admin_UI
+class Product_Slider extends FrameWork\Admin_UI
 {	
 	/**
 	 * @var string
@@ -93,24 +97,30 @@ class WC_Product_Slider_Settings_Page extends WC_Product_Slider_Admin_UI
 	/* Include all tabs into this page
 	/*-----------------------------------------------------------------------------------*/
 	public function tabs_include() {
+		
+		global $wc_product_slider_global_settings_tab;
+		$wc_product_slider_global_settings_tab = new FrameWork\Tabs\Global_Settings();
 
-		include_once( $this->admin_plugin_dir() . '/tabs/settings-tab.php' );
-		include_once( $this->admin_plugin_dir() . '/tabs/widget-skin-tab.php' );
+		global $wc_product_slider_widget_skin_settings_tab;
+		$wc_product_slider_widget_skin_settings_tab = new FrameWork\Tabs\Widget_Skin();
+
+
 	}
 	
 	/*-----------------------------------------------------------------------------------*/
 	/* admin_settings_page() */
 	/* Show Settings Page */
 	/*-----------------------------------------------------------------------------------*/
-	public function admin_settings_page() {
-		global $wc_product_slider_admin_init;
-		$wc_product_slider_admin_init->admin_settings_page( $this->page_data() );
+	public function admin_settings_page() {		
+		$GLOBALS[$this->plugin_prefix.'admin_init']->admin_settings_page( $this->page_data() );
 	}
 	
 }
 
-global $wc_product_slider_settings_page;
-$wc_product_slider_settings_page = new WC_Product_Slider_Settings_Page();
+}
+
+// global code
+namespace {
 
 /** 
  * wc_product_slider_settings_page_show()
@@ -119,4 +129,6 @@ $wc_product_slider_settings_page = new WC_Product_Slider_Settings_Page();
 function wc_product_slider_settings_page_show() {
 	global $wc_product_slider_settings_page;
 	$wc_product_slider_settings_page->admin_settings_page();
+}
+
 }

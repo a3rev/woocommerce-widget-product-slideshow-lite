@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-          "A3Rev\\WCPSlider\\": [ "classes/", "includes/", "widget/", "shortcodes/" ]
+          "A3Rev\\WCPSlider\\": [ "admin/", "classes/", "includes/", "widget/", "shortcodes/" ]
         }
     }
 }

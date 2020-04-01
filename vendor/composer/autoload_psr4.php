@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'A3Rev\\WCPSlider\\' => array($baseDir . '/classes', $baseDir . '/includes', $baseDir . '/widget', $baseDir . '/shortcodes'),
+    'A3Rev\\WCPSlider\\' => array($baseDir . '/admin', $baseDir . '/classes', $baseDir . '/includes', $baseDir . '/widget', $baseDir . '/shortcodes'),
 );

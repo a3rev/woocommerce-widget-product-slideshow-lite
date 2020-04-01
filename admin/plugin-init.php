@@ -6,8 +6,7 @@
 function wc_product_slider_activated(){
 	update_option( 'woo_gallery_widget_lite_version', WC_PRODUCT_SLIDER_VERSION );
 
-	global $wc_product_slider_admin_init;
-	delete_metadata( 'user', 0, $wc_product_slider_admin_init->plugin_name . '-' . 'plugin_framework_global_box' . '-' . 'opened', '', true );
+	delete_metadata( 'user', 0, $GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_init']->plugin_name . '-' . 'plugin_framework_global_box' . '-' . 'opened', '', true );
 
 	update_option('a3_wc_widget_product_slider_just_installed', true);
 }
@@ -17,12 +16,10 @@ function wc_product_slider_init() {
 		delete_option( 'a3_wc_widget_product_slider_just_installed' );
 
 		// Set Settings Default from Admin Init
-		global $wc_product_slider_admin_init;
-		$wc_product_slider_admin_init->set_default_settings();
+		$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_init']->set_default_settings();
 
 		// Build sass
-		global $wc_product_slider_less;
-		$wc_product_slider_less->plugin_build_sass();
+		$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'less']->plugin_build_sass();
 	}
 
 	wc_product_slider_plugin_textdomain();
@@ -40,11 +37,10 @@ add_filter( 'plugin_row_meta', array('\A3Rev\WCPSlider\Hook_Filter', 'plugin_ext
 add_action( 'admin_enqueue_scripts', array( '\A3Rev\WCPSlider\Hook_Filter', 'admin_sidebar_menu_css' ) );
 
 
-global $wc_product_slider_admin_init;
-$wc_product_slider_admin_init->init();
+$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_init']->init();
 
 // Add upgrade notice to Dashboard pages
-add_filter( $wc_product_slider_admin_init->plugin_name . '_plugin_extension_boxes', array( '\A3Rev\WCPSlider\Hook_Filter', 'plugin_extension_box' ) );
+add_filter( $GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_init']->plugin_name . '_plugin_extension_boxes', array( '\A3Rev\WCPSlider\Hook_Filter', 'plugin_extension_box' ) );
 
 // Add extra link on left of Deactivate link on Plugin manager page
 add_action('plugin_action_links_' . WC_PRODUCT_SLIDER_NAME, array( '\A3Rev\WCPSlider\Hook_Filter', 'settings_plugin_links' ) );
@@ -72,14 +68,12 @@ if ( in_array( basename( $_SERVER['PHP_SELF'] ), array( 'widgets.php' ) ) ) {
 // Check upgrade functions
 add_action( 'init', 'wc_product_slider_lite_upgrade_plugin' );
 function wc_product_slider_lite_upgrade_plugin () {
-	global $wc_product_slider_admin_init;
-	global $wc_product_slider_less;
 
 	if( version_compare(get_option('woo_gallery_widget_lite_version'), '1.2.1') === -1 ){
 		update_option('woo_gallery_widget_lite_version', '1.2.1');
 
 		// Build sass
-		$wc_product_slider_less->plugin_build_sass();
+		$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'less']->plugin_build_sass();
 	}
 
 	if( version_compare(get_option('woo_gallery_widget_lite_version'), '1.3.1') === -1 ){

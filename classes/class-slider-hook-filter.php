@@ -36,16 +36,14 @@ class Hook_Filter
 
 		// If don't have any plugin or theme register font awesome style then register it from plugin framework
 		if ( ! wp_style_is( 'font-awesome-styles', 'registered' ) ) {
-			global $wc_product_slider_admin_interface;
-			$wc_product_slider_admin_interface->register_fontawesome_style();
+			$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_interface']->register_fontawesome_style();
 		}
 		wp_register_style( 'wc-product-slider-styles', WC_PRODUCT_SLIDER_CSS_URL . '/wc-product-slider'.$suffix.'.css', array( 'font-awesome-styles' ), WC_PRODUCT_SLIDER_VERSION );
 
 		$template_names = array( 'wc_product_slider_widget' );
         foreach ( $template_names as $template_name ) {
         	if ( file_exists( $_upload_dir['basedir'] . '/sass/'.$template_name.$suffix.'.css' ) ) {
-        		global $wc_product_slider_less;
-				wp_register_style( $template_name, str_replace(array('http:','https:'), '', $_upload_dir['baseurl'] ) . '/sass/'.$template_name.$suffix.'.css', array( 'wc-product-slider-styles' ), $wc_product_slider_less->get_css_file_version() );
+				wp_register_style( $template_name, str_replace(array('http:','https:'), '', $_upload_dir['baseurl'] ) . '/sass/'.$template_name.$suffix.'.css', array( 'wc-product-slider-styles' ), $GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'less']->get_css_file_version() );
         	}
         }
 
@@ -102,7 +100,6 @@ class Hook_Filter
 	}
 
 	public static function add_google_fonts() {
-		global $wc_product_slider_fonts_face;
 
 		global $wc_product_slider_widget_skin_settings;
 
@@ -117,7 +114,7 @@ class Hook_Filter
 		$google_fonts[] = $category_link_font['face'];
 		$google_fonts[] = $tag_link_font['face'];
 
-		if ( count( $google_fonts ) > 0 ) $wc_product_slider_fonts_face->generate_google_webfonts( $google_fonts );
+		if ( count( $google_fonts ) > 0 ) $GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'fonts_face']->generate_google_webfonts( $google_fonts );
 	}
 
 	public static function include_admin_script() {
@@ -137,9 +134,8 @@ class Hook_Filter
 			return $links;
 		}
 
-		global $wc_product_slider_admin_init;
 		$links[] = '<a href="'.WC_PRODUCT_SLIDER_DOCS_URI.'" target="_blank">'.__('Documentation', 'woo-widget-product-slideshow' ).'</a>';
-		$links[] = '<a href="'.$wc_product_slider_admin_init->support_url.'" target="_blank">'.__('Support', 'woo-widget-product-slideshow' ).'</a>';
+		$links[] = '<a href="'.$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_init']->support_url.'" target="_blank">'.__('Support', 'woo-widget-product-slideshow' ).'</a>';
 		return $links;
 	}
 
@@ -152,9 +148,8 @@ class Hook_Filter
 	}
 
 	public static function plugin_extension_box( $boxes = array() ) {
-		global $wc_product_slider_admin_init;
 
-		$support_box = '<a href="'.$wc_product_slider_admin_init->support_url.'" target="_blank" alt="'.__('Go to Support Forum', 'wooquickview').'"><img src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/go-to-support-forum.png" /></a>';
+		$support_box = '<a href="'.$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_init']->support_url.'" target="_blank" alt="'.__('Go to Support Forum', 'wooquickview').'"><img src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/go-to-support-forum.png" /></a>';
 
 		$boxes[] = array(
 			'content' => $support_box,
@@ -169,7 +164,7 @@ class Hook_Filter
             'css' => 'border: none; padding: 0; background: none;'
         );
 
-		$carousel_box = '<a href="'.$wc_product_slider_admin_init->pro_plugin_page_url.'" target="_blank"><img src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/woocommerce-carousel-slider.jpg" /></a>';
+		$carousel_box = '<a href="'.$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_init']->pro_plugin_page_url.'" target="_blank"><img src="'.WC_PRODUCT_SLIDER_IMAGES_URL.'/woocommerce-carousel-slider.jpg" /></a>';
 		$boxes[] = array(
 			'content' => $carousel_box,
 			'css' => 'border: none; padding: 0; background: none;'

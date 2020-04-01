@@ -37,9 +37,7 @@ update_option( 'wc_product_slider_widget_skin_settings', $wc_product_slider_widg
 
 
 // Set Settings Default from Admin Init
-global $wc_product_slider_admin_init;
-$wc_product_slider_admin_init->set_default_settings();
+$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_init']->set_default_settings();
 
 // Build sass
-global $wc_product_slider_less;
-$wc_product_slider_less->plugin_build_sass();
+$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'less']->plugin_build_sass();

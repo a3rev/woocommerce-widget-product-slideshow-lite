@@ -1,9 +1,11 @@
 <?php
 /* "Copyright 2012 a3 Revolution Web Design" This software is distributed under the terms of GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 */
+
+namespace A3Rev\WCPSlider\FrameWork {
+
 // File Security Check
 if ( ! defined( 'ABSPATH' ) ) exit;
-?>
-<?php
+
 /*-----------------------------------------------------------------------------------
 A3rev Plugin Admin UI
 
@@ -24,14 +26,14 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WC_Product_Slider_Admin_UI
+class Admin_UI
 {
 	/**
 	 * @var string
 	 * You must change to correct plugin name that you are working
 	 */
 
-	public $framework_version      = '2.2.0';
+	public $framework_version      = '2.3.0';
 	public $plugin_name            = WC_PRODUCT_SLIDER_KEY;
 	public $plugin_path            = WC_PRODUCT_SLIDER_NAME;
 	public $google_api_key_option  = '';
@@ -49,6 +51,8 @@ class WC_Product_Slider_Admin_UI
 	 * You must change to correct class name that you are working
 	 */
 	public $class_name = 'WC_Product_Slider';
+
+	public $plugin_prefix = WC_PRODUCT_SLIDER_PREFIX;
 
 	/**
 	 * @var string
@@ -140,7 +144,7 @@ class WC_Product_Slider_Admin_UI
 				// Check it is a valid request
 				if ( ! is_wp_error( $respone_api ) ) {
 
-					$json_string = get_magic_quotes_gpc() ? stripslashes( $respone_api['body'] ) : $respone_api['body'];
+					$json_string = version_compare( PHP_VERSION, '7.4', '>=' ) || get_magic_quotes_gpc() ? stripslashes( $respone_api['body'] ) : $respone_api['body']; // @codingStandardsIgnoreLine // phpcs:ignore
 					$response_map = json_decode( $json_string, true );
 
 					// Make sure that the valid response from google is not an error message
@@ -445,4 +449,4 @@ class WC_Product_Slider_Admin_UI
 
 }
 
-?>
+}

@@ -1,15 +1,19 @@
 <?php
 /* "Copyright 2012 A3 Revolution Web Design" This software is distributed under the terms of GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 */
+
+namespace A3Rev\WCPSlider\FrameWork\Settings\Widget_Skin {
+
+use A3Rev\WCPSlider\FrameWork;
+
 // File Security Check
 if ( ! defined( 'ABSPATH' ) ) exit;
-?>
-<?php
+
 /*-----------------------------------------------------------------------------------
 Slider Widget Skin Category & Tag Link Settings
 
 -----------------------------------------------------------------------------------*/
 
-class WC_Product_Slider_Widget_Skin_Category_Link_Settings
+class Category_Link
 {
 
 	/**
@@ -363,7 +367,4 @@ $(document).ready(function() {
 	}
 }
 
-global $wc_product_slider_widget_skin_category_link_settings;
-$wc_product_slider_widget_skin_category_link_settings = new WC_Product_Slider_Widget_Skin_Category_Link_Settings();
-
-?>
+}

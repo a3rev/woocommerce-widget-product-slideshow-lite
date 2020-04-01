@@ -1,9 +1,11 @@
 <?php
 /* "Copyright 2012 a3 Revolution Web Design" This software is distributed under the terms of GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 */
+
+namespace A3Rev\WCPSlider\FrameWork {
+
 // File Security Check
 if ( ! defined( 'ABSPATH' ) ) exit;
-?>
-<?php
+
 /*-----------------------------------------------------------------------------------
 A3rev Plugin Admin Init
 
@@ -20,7 +22,7 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WC_Product_Slider_Admin_Init extends WC_Product_Slider_Admin_UI
+class Admin_Init extends Admin_UI
 {
 
 	/**
@@ -317,7 +319,4 @@ class WC_Product_Slider_Admin_Init extends WC_Product_Slider_Admin_UI
 	}
 }
 
-global $wc_product_slider_admin_init;
-$wc_product_slider_admin_init = new WC_Product_Slider_Admin_Init();
-
-?>
+}

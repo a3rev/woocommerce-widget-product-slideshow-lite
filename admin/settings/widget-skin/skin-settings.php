@@ -1,9 +1,13 @@
 <?php
 /* "Copyright 2012 A3 Revolution Web Design" This software is distributed under the terms of GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 */
+
+namespace A3Rev\WCPSlider\FrameWork\Settings {
+
+use A3Rev\WCPSlider\FrameWork;
+
 // File Security Check
 if ( ! defined( 'ABSPATH' ) ) exit;
-?>
-<?php
+
 /*-----------------------------------------------------------------------------------
 Slider Widget Skin Settings
 
@@ -28,7 +32,7 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WC_Product_Slider_Widget_Skin_Settings_Panel extends WC_Product_Slider_Admin_UI
+class Widget_Skin extends FrameWork\Admin_UI
 {
 	
 	/**
@@ -104,20 +108,16 @@ class WC_Product_Slider_Widget_Skin_Settings_Panel extends WC_Product_Slider_Adm
 	/* set_default_settings()
 	/* Set default settings with function called from Admin Interface */
 	/*-----------------------------------------------------------------------------------*/
-	public function set_default_settings() {
-		global $wc_product_slider_admin_interface;
-		
-		$wc_product_slider_admin_interface->reset_settings( $this->form_fields, $this->option_name, false );
+	public function set_default_settings() {		
+		$GLOBALS[$this->plugin_prefix.'admin_interface']->reset_settings( $this->form_fields, $this->option_name, false );
 	}
 	
 	/*-----------------------------------------------------------------------------------*/
 	/* get_settings()
 	/* Get settings with function called from Admin Interface */
 	/*-----------------------------------------------------------------------------------*/
-	public function get_settings() {
-		global $wc_product_slider_admin_interface;
-		
-		$wc_product_slider_admin_interface->get_settings( $this->form_fields, $this->option_name );
+	public function get_settings() {		
+		$GLOBALS[$this->plugin_prefix.'admin_interface']->get_settings( $this->form_fields, $this->option_name );
 	}
 	
 	/**
@@ -160,11 +160,9 @@ class WC_Product_Slider_Widget_Skin_Settings_Panel extends WC_Product_Slider_Adm
 	/* settings_form() */
 	/* Call the form from Admin Interface
 	/*-----------------------------------------------------------------------------------*/
-	public function settings_form() {
-		global $wc_product_slider_admin_interface;
-		
+	public function settings_form() {		
 		$output = '';
-		$output .= $wc_product_slider_admin_interface->admin_forms( $this->form_fields, $this->form_key, $this->option_name, $this->form_messages );
+		$output .= $GLOBALS[$this->plugin_prefix.'admin_interface']->admin_forms( $this->form_fields, $this->form_key, $this->option_name, $this->form_messages );
 		
 		return $output;
 	}
@@ -178,39 +176,38 @@ class WC_Product_Slider_Widget_Skin_Settings_Panel extends WC_Product_Slider_Adm
   		// Define settings			
      	$this->form_fields = array();
 
-		include_once( $this->admin_plugin_dir() . '/settings/widget-skin/dimensions-settings.php' );
 		global $wc_product_slider_widget_skin_dimensions_settings;
+		$wc_product_slider_widget_skin_dimensions_settings = new Widget_Skin\Dimensions();
 		$this->form_fields = array_merge( $this->form_fields, $wc_product_slider_widget_skin_dimensions_settings->form_fields );
 
-		include_once( $this->admin_plugin_dir() . '/settings/widget-skin/control-settings.php' );
 		global $wc_product_slider_widget_skin_control_settings;
+		$wc_product_slider_widget_skin_control_settings = new Widget_Skin\Control();
 		$this->form_fields = array_merge( $this->form_fields, $wc_product_slider_widget_skin_control_settings->form_fields );
 
-		include_once( $this->admin_plugin_dir() . '/settings/widget-skin/pager-settings.php' );
 		global $wc_product_slider_widget_skin_pager_settings;
+		$wc_product_slider_widget_skin_pager_settings = new Widget_Skin\Pager();
 		$this->form_fields = array_merge( $this->form_fields, $wc_product_slider_widget_skin_pager_settings->form_fields );
 
-		include_once( $this->admin_plugin_dir() . '/settings/widget-skin/title-settings.php' );
 		global $wc_product_slider_widget_skin_title_settings;
+		$wc_product_slider_widget_skin_title_settings = new Widget_Skin\Title();
 		$this->form_fields = array_merge( $this->form_fields, $wc_product_slider_widget_skin_title_settings->form_fields );
 
-		include_once( $this->admin_plugin_dir() . '/settings/widget-skin/price-settings.php' );
 		global $wc_product_slider_widget_skin_price_settings;
+		$wc_product_slider_widget_skin_price_settings = new Widget_Skin\Price();
 		$this->form_fields = array_merge( $this->form_fields, $wc_product_slider_widget_skin_price_settings->form_fields );
 
-		include_once( $this->admin_plugin_dir() . '/settings/widget-skin/product-link-settings.php' );
 		global $wc_product_slider_widget_skin_product_link_settings;
+		$wc_product_slider_widget_skin_product_link_settings = new Widget_Skin\Product_Link();
 		$this->form_fields = array_merge( $this->form_fields, $wc_product_slider_widget_skin_product_link_settings->form_fields );
 
-		include_once( $this->admin_plugin_dir() . '/settings/widget-skin/category-link-settings.php' );
 		global $wc_product_slider_widget_skin_category_link_settings;
+		$wc_product_slider_widget_skin_category_link_settings = new Widget_Skin\Category_Link();
 		$this->form_fields = array_merge( $this->form_fields, $wc_product_slider_widget_skin_category_link_settings->form_fields );
 
         $this->form_fields = apply_filters( $this->form_key . '_settings_fields', $this->form_fields );
 	}
 	
 	public function include_script() {
-
 		global $wc_product_slider_widget_skin_dimensions_settings;
 		global $wc_product_slider_widget_skin_control_settings;
 		global $wc_product_slider_widget_skin_pager_settings;
@@ -230,8 +227,10 @@ class WC_Product_Slider_Widget_Skin_Settings_Panel extends WC_Product_Slider_Adm
 	
 }
 
-global $wc_product_slider_widget_skin_settings_panel;
-$wc_product_slider_widget_skin_settings_panel = new WC_Product_Slider_Widget_Skin_Settings_Panel();
+}
+
+// global code
+namespace {
 
 /** 
  * wc_product_slider_widget_skin_settings_panel_form()
@@ -242,4 +241,4 @@ function wc_product_slider_widget_skin_settings_panel_form() {
 	$wc_product_slider_widget_skin_settings_panel->settings_form();
 }
 
-?>
+}

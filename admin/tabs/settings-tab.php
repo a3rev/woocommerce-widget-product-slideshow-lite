@@ -1,9 +1,13 @@
 <?php
 /* "Copyright 2012 A3 Revolution Web Design" This software is distributed under the terms of GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 */
+
+namespace A3Rev\WCPSlider\FrameWork\Tabs {
+
+use A3Rev\WCPSlider\FrameWork;
+
 // File Security Check
 if ( ! defined( 'ABSPATH' ) ) exit;
-?>
-<?php
+
 /*-----------------------------------------------------------------------------------
 Slider Widget Skin Global Settings Tab
 
@@ -22,7 +26,7 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WC_Product_Slider_Global_Settings_Tab extends WC_Product_Slider_Admin_UI
+class Global_Settings extends FrameWork\Admin_UI
 {	
 	/**
 	 * @var string
@@ -103,7 +107,8 @@ class WC_Product_Slider_Global_Settings_Tab extends WC_Product_Slider_Admin_UI
 	public function settings_include() {
 		
 		// Includes Settings file
-		include_once( $this->admin_plugin_dir() . '/settings/global-settings.php' );
+		global $wc_product_slider_global_settings_panel;
+		$wc_product_slider_global_settings_panel = new FrameWork\Settings\Global_Panel();
 		
 	}
 	
@@ -120,8 +125,10 @@ class WC_Product_Slider_Global_Settings_Tab extends WC_Product_Slider_Admin_UI
 	}
 }
 
-global $wc_product_slider_global_settings_tab;
-$wc_product_slider_global_settings_tab = new WC_Product_Slider_Global_Settings_Tab();
+}
+
+// global code
+namespace {
 
 /** 
  * people_contact_grid_view_tab_manager()
@@ -132,4 +139,4 @@ function wc_product_slider_global_settings_tab_manager() {
 	$wc_product_slider_global_settings_tab->tab_manager();
 }
 
-?>
+}

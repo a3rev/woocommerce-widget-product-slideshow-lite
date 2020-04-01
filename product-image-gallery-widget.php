@@ -2,15 +2,15 @@
 /*
 Plugin Name: Product Widget Slider for WooCommerce
 Description: Adds visually stunning WooCommerce product sliders to any widgeted area. Fully customizable, Widget Skin. Fully mobile responsive. Show any number of products from a selected product category.
-Version: 1.7.0
+Version: 1.7.1
 Author: a3rev Software
 Author URI: https://a3rev.com/
-Requires at least: 4.5
-Tested up to: 5.3
+Requires at least: 5.0
+Tested up to: 5.4
 Text Domain: woo-widget-product-slideshow
 Domain Path: /languages
-WC requires at least: 2.0.0
-WC tested up to: 3.8.1
+WC requires at least: 3.0
+WC tested up to: 4.0.1
 License: GPLv2 or later
 
 	WooCommerce Widget Product Slider Lite plugin.
@@ -40,8 +40,11 @@ if (!defined("WC_PRODUCT_SLIDER_VERSION_URI")) define("WC_PRODUCT_SLIDER_VERSION
 if (!defined("WC_CAROUSEL_SLIDER_VERSION_URI")) define("WC_CAROUSEL_SLIDER_VERSION_URI", "http://a3rev.com/shop/woocommerce-carousel-slider/");
 
 define( 'WC_PRODUCT_SLIDER_KEY', 'woo_gallery_widget' );
-define( 'WC_PRODUCT_SLIDER_VERSION', '1.7.0' );
+define( 'WC_PRODUCT_SLIDER_PREFIX', 'wc_product_slider_' );
+define( 'WC_PRODUCT_SLIDER_VERSION', '1.7.1' );
 define( 'WC_PRODUCT_SLIDER_G_FONTS', true );
+
+use \A3Rev\WCPSlider\FrameWork;
 
 if ( version_compare( PHP_VERSION, '5.6.0', '>=' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
@@ -50,11 +53,25 @@ if ( version_compare( PHP_VERSION, '5.6.0', '>=' ) ) {
 	global $wc_product_slider_legacy_api;
 	$wc_product_slider_legacy_api = new \A3Rev\WCPSlider\Legacy_API();
 
-	global $wc_product_slider_hook_backbone;
-	$wc_product_slider_hook_backbone = new \A3Rev\WCPSlider\Backbone();
-
 	global $wc_product_slider_wpml;
 	$wc_product_slider_wpml = new \A3Rev\WCPSlider\WPML();
+
+	/**
+	 * Plugin Framework init
+	 */
+	$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_interface'] = new FrameWork\Admin_Interface();
+
+	global $wc_product_slider_settings_page;
+	$wc_product_slider_settings_page = new FrameWork\Pages\Product_Slider();
+
+	$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_init'] = new FrameWork\Admin_Init();
+
+	$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'less'] = new FrameWork\Less_Sass();
+
+	// End - Plugin Framework init
+
+	global $wc_product_slider_hook_backbone;
+	$wc_product_slider_hook_backbone = new \A3Rev\WCPSlider\Backbone();
 
 } else {
 	return;
@@ -76,14 +93,6 @@ function wc_product_slider_plugin_textdomain() {
 	load_textdomain( 'woo-widget-product-slideshow', WP_LANG_DIR . '/woo-widget-product-slideshow/woo-widget-product-slideshow-' . $locale . '.mo' );
 	load_plugin_textdomain( 'woo-widget-product-slideshow', false, WC_PRODUCT_SLIDER_FOLDER . '/languages/' );
 }
-
-include ('admin/admin-ui.php');
-include ('admin/admin-interface.php');
-
-include ('admin/admin-pages/settings-page.php');
-
-include ('admin/admin-init.php');
-include ('admin/less/sass.php');
 
 include 'admin/plugin-init.php';
 
