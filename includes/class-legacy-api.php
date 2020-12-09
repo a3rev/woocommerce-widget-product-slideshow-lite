@@ -25,7 +25,7 @@ class Legacy_API {
 	}
 	
 	public function get_legacy_api_url() {
-		$legacy_api_url = WC()->api_request_url( $this->base_tag );
+		$legacy_api_url = \WC()->api_request_url( $this->base_tag );
 		$legacy_api_url = str_replace( array( 'https:', 'http:' ), '', $legacy_api_url );
 
 		return $legacy_api_url;
@@ -79,7 +79,7 @@ class Legacy_API {
 				$product_id = $product->ID;
 				if ( version_compare( $woocommerce_db_version, '2.0', '<' ) && null !== $woocommerce_db_version ) {
 					$product_data = new \WC_Product( $product_id ); 
-				} elseif ( version_compare( WC()->version, '2.2.0', '<' ) ) {
+				} elseif ( version_compare( \WC()->version, '2.2.0', '<' ) ) {
 					$product_data = get_product( $product_id );
 				} else {
 					$product_data = wc_get_product( $product_id );
@@ -241,8 +241,8 @@ class Legacy_API {
 			$meta_tax_query[] = $woocommerce->query->visibility_meta_query();
 	    	$meta_tax_query[] = $woocommerce->query->stock_status_meta_query();
 		} elseif ( version_compare( $wc_version, '3.0.0', '<' ) ) {
-			$meta_tax_query[] = WC()->query->visibility_meta_query();
-	    	$meta_tax_query[] = WC()->query->stock_status_meta_query();
+			$meta_tax_query[] = \WC()->query->visibility_meta_query();
+	    	$meta_tax_query[] = \WC()->query->stock_status_meta_query();
 		} else {
 			$meta_tax_query[] = array(
 				'taxonomy' => 'product_visibility',

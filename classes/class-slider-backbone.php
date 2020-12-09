@@ -19,7 +19,7 @@ class Backbone
 	public function __construct() {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_underscore_scripts' ), 8 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ), 11 );
 		add_action( 'wp_footer', array( $this, 'include_scripts_footer' ), 100 );
 	}
 
