@@ -329,7 +329,7 @@ $(function(){
 				}
 
 				var slideID = this.sliderID;
-				//$(window).bind("load", function() {
+				//$(window).on("load", function() {
 					var checkLoadAllImages = setInterval( function() {
 						//console.log('Checking is relpace src of all images');
 						if ( $('#' + slideID + ' img.cycle-wc-product-image.lazy-hidden').length < 1 ) {

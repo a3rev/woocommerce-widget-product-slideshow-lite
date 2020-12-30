@@ -16,7 +16,7 @@ $.event.special.swipe = $.event.special.swipe || {
     setup: function() {
         var $this = $( this );
 
-        $this.bind( 'touchstart', function( event ) {
+        $this.on( 'touchstart', function( event ) {
             var data = event.originalEvent.touches ? event.originalEvent.touches[ 0 ] : event;
             var stop, start = {
                 time: ( new Date() ).getTime(),
@@ -41,9 +41,9 @@ $.event.special.swipe = $.event.special.swipe || {
                 }
             }
 
-            $this.bind( 'touchmove', moveHandler )
+            $this.on( 'touchmove', moveHandler )
                 .one( 'touchend', function( event ) {
-                    $this.unbind( 'touchmove', moveHandler );
+                    $this.off( 'touchmove', moveHandler );
 
                     if ( start && stop ) {
                         if ( stop.time - start.time < $.event.special.swipe.durationThreshold &&
@@ -62,7 +62,7 @@ $.event.special.swipe = $.event.special.swipe || {
 
 $.event.special.swipeleft = $.event.special.swipeleft || {
     setup: function() {
-        $( this ).bind( 'swipe', $.noop );
+        $( this ).on( 'swipe', $.noop );
     }
 };
 $.event.special.swiperight = $.event.special.swiperight || $.event.special.swipeleft;
