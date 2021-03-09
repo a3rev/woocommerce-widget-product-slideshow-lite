@@ -38,14 +38,14 @@ class Functions
 		$image_info = array();
 		if ( file_exists( get_stylesheet_directory() . '/images/' . $file ) ) {
 			$file_url = get_stylesheet_directory_uri() . '/images/' . $file;
-			list($current_width, $current_height) = getimagesize(get_stylesheet_directory() . '/images/' . $file);
+			list($current_width, $current_height) = version_compare( get_bloginfo( 'version' ), '5.7', '>=' ) ? wp_getimagesize(get_stylesheet_directory() . '/images/' . $file) : getimagesize(get_stylesheet_directory() . '/images/' . $file);
 			$image_info['url'] = $file_url;
 			$image_info['width'] = $current_width;
 			$image_info['height'] = $current_height;
 		// Look for file in template
 		} elseif ( file_exists( get_template_directory() . '/images/' . $file ) ) {
 			$file_url = get_template_directory_uri() . '/images/' . $file;
-			list($current_width, $current_height) = getimagesize(get_template_directory() . '/images/' . $file);
+			list($current_width, $current_height) = version_compare( get_bloginfo( 'version' ), '5.7', '>=' ) ? wp_getimagesize(get_template_directory() . '/images/' . $file) : getimagesize(get_template_directory() . '/images/' . $file);
 			$image_info['url'] = $file_url;
 			$image_info['width'] = $current_width;
 			$image_info['height'] = $current_height;
@@ -53,7 +53,7 @@ class Functions
 		} else {
 			$woocommerce_db_version = get_option( 'woocommerce_db_version', null );
 			$file_url = ( ( version_compare( $woocommerce_db_version, '2.1', '<' ) ) ? woocommerce_placeholder_img_src() : wc_placeholder_img_src() );
-			list($current_width, $current_height) = getimagesize($file_url);
+			list($current_width, $current_height) = version_compare( get_bloginfo( 'version' ), '5.7', '>=' ) ? wp_getimagesize($file_url) : getimagesize($file_url);
 			$image_info['url'] = $file_url;
 			$image_info['width'] = $current_width;
 			$image_info['height'] = $current_height;
