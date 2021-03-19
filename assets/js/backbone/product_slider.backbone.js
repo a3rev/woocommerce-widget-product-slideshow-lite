@@ -124,7 +124,7 @@ $(function(){
 				this.sliderIsVisible = true;
 				this.loadItems();
 
-				$(window).resize( this, function( event ) {
+				$(window).on('resize', this, function( event ) {
 					sliderview = event.data;
 					clearTimeout( window[ 'resizedFinished' + sliderview.sliderID ] );
 				    window[ 'resizedFinished' + sliderview.sliderID ] = setTimeout(function( sliderview ) {
@@ -146,7 +146,7 @@ $(function(){
 					}
 				}
 
-				$(window).resize( this, function( event ) {
+				$(window).on('resize', this, function( event ) {
 					sliderview = event.data;
 					sliderview.sliderResize();
 				});

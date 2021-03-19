@@ -210,7 +210,7 @@ class Shortcode
         <script type="text/javascript">
 		(function($) {
 		$(document).ready(function() {
-			$("input.wc_product_slider_slider_type").change( function() {
+			$("input.wc_product_slider_slider_type").on('change', function() {
 				if ( $("input.wc_product_slider_slider_type:checked").val() == 'default') {
 					$("#wc_product_slider_slider_type_carousel").slideUp();
 				} else {
@@ -218,7 +218,7 @@ class Shortcode
 				}
 			});
 
-			$("select.wc_product_slider_show_type").change( function() {
+			$("select.wc_product_slider_show_type").on('change', function() {
 				if ( $("select.wc_product_slider_show_type").val() == 'category') {
 					$("#wc_product_slider_show_type_category").slideDown();
 					$("#wc_product_slider_show_type_tag").slideUp();
@@ -234,7 +234,7 @@ class Shortcode
 				}
 			});
 
-			$("input.wc_product_slider_skin_type").change( function() {
+			$("input.wc_product_slider_skin_type").on('change', function() {
 				if ( $("input.wc_product_slider_skin_type:checked").val() == 'widget') {
 					$("#wc_product_slider_skin_type_widget").slideDown();
 					$("#wc_product_slider_skin_type_card").slideUp();
@@ -244,7 +244,7 @@ class Shortcode
 				}
 			});
 
-			$("input.wc_product_slider_auto_scroll").change( function() {
+			$("input.wc_product_slider_auto_scroll").on('change', function() {
 				if ( $("input.wc_product_slider_auto_scroll:checked").val() == 'yes') {
 					$("#wc_product_slider_auto_scroll_auto").slideDown();
 				} else {
