@@ -87,8 +87,6 @@ class Admin_UI
 		}
 
 		$this->support_url = 'https://wordpress.org/support/plugin/woo-widget-product-slideshow/';
-
-		$this->update_google_map_api_key();
 	}
 	
 	

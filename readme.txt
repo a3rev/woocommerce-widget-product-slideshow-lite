@@ -4,7 +4,7 @@ Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
 Requires at least: 5.6
 Tested up to: 6.0
-Stable tag: 1.9.0
+Stable tag: 1.9.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,6 +94,10 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 1.9.1 - 2022/05/25 =
+* This release fixes a bug with the just released version 1.9.0
+* Fix - Do not call update_google_map_api_key from construct of Admin UI
 
 = 1.9.0 - 2022/05/24 =
 * This release is for compatibility with WordPress major version 6.0 and WooCommerce version 6.5.1. It and includes various code tweaks and tweaks to harden security.
@@ -551,6 +555,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 1.9.1 =
+This release fixes a bug with the just released version 1.9.0
 
 = 1.9.0 =
 This release is for compatibility with WordPress major version 6.0 and WooCommerce version 6.5.1. It and includes various code tweaks and tweaks to harden security.
