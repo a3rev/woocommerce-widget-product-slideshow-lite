@@ -3,8 +3,8 @@
 Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
 Requires at least: 5.6
-Tested up to: 6.0
-Stable tag: 1.9.1
+Tested up to: 6.1
+Stable tag: 1.9.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,6 +94,12 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 1.9.2 - 2022/11/01 =
+* This maintenance release has a security vulnerability patch, plus compatibility with WordPress major version 6.1.0 and WooCommerce version 7.0
+* Tweak - Test for compatibility with WordPress 6.1
+* Tweak - Test for compatibility with WooCommerce 7.0
+* Security – This release has a patch for a security vulnerability
 
 = 1.9.1 - 2022/05/25 =
 * This release fixes a bug with the just released version 1.9.0
@@ -555,6 +561,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 1.9.2 =
+This maintenance release has a security vulnerability patch, plus compatibility with WordPress major version 6.1.0 and WooCommerce version 7.0
 
 = 1.9.1 =
 This release fixes a bug with the just released version 1.9.0
