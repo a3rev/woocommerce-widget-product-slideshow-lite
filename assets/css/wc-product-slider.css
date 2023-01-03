@@ -71,11 +71,11 @@
   margin-left: -10px;
   margin-right: -10px;
 }
-.wc-product-slider-container .a3-cycle-controls > span span,
 .wc-product-slider-container .a3-cycle-controls > span svg {
-  color: #000;
+  fill: #000;
   cursor: pointer;
-  font-size: 30px;
+  width: 30px;
+  height: 30px;
   opacity: 0.6;
   padding: 0 10px;
 }
@@ -318,8 +318,7 @@ body .wc-product-slider-basic-mobile-skin-container {
   padding: 2px 5px !important;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  font: normal 11px Arial, sans-serif !important;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
   position: relative !important;
 }
 .wc-product-slider-basic-mobile-skin-container .cycle-mobile-skin-overlay {
@@ -329,12 +328,10 @@ body .wc-product-slider-basic-mobile-skin-container {
   display: block;
   padding: 0 !important;
   margin: 5px 10px 5px 10px !important;
-  font: normal 16px Arial, sans-serif !important;
-  color: #6d6d6d !important;
+  color: #6d6d6d;
 }
 .wc-product-slider-basic-mobile-skin-container .cycle-mobile-skin-overlay .cycle-product-name a {
-  font: normal 16px Arial, sans-serif !important;
-  color: #6d6d6d !important;
+  color: #6d6d6d;
 }
 .wc-product-slider-basic-mobile-skin-container .cycle-mobile-skin-overlay .cycle-product-name a:hover {
   color: #383838 !important;
@@ -342,8 +339,7 @@ body .wc-product-slider-basic-mobile-skin-container {
 .wc-product-slider-basic-mobile-skin-container .cycle-mobile-skin-overlay .cycle-description {
   display: block;
   margin: 10px 10px 5px 10px !important;
-  font: normal 12px Arial, sans-serif !important;
-  color: #666666 !important;
+  color: #666666;
 }
 div.a3-cycle-lazy-hidden {
   height: 100%;

@@ -34,11 +34,7 @@ class Hook_Filter
 
 		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 
-		// If don't have any plugin or theme register font awesome style then register it from plugin framework
-		if ( ! wp_style_is( 'font-awesome-styles', 'registered' ) ) {
-			$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'admin_interface']->register_fontawesome_style();
-		}
-		wp_register_style( 'wc-product-slider-styles', WC_PRODUCT_SLIDER_CSS_URL . '/wc-product-slider'.$suffix.'.css', array( 'font-awesome-styles' ), WC_PRODUCT_SLIDER_VERSION );
+		wp_register_style( 'wc-product-slider-styles', WC_PRODUCT_SLIDER_CSS_URL . '/wc-product-slider'.$suffix.'.css', array(), WC_PRODUCT_SLIDER_VERSION );
 
 		$template_names = array( 'wc_product_slider_widget' );
         foreach ( $template_names as $template_name ) {

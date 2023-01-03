@@ -98,10 +98,10 @@ class Display
         >
 
         	<div class="a3-cycle-controls" style="display: none;">
-            	<span class="cycle-prev-control"><span class="fa fa-angle-left cycle-prev"></span></span>
-                <span class="cycle-next-control"><span class="fa fa-angle-right cycle-next"></span></span>
-                <span class="cycle-pause-control"><span class="fa fa-pause cycle-pause" data-cycle-cmd="pause" data-cycle-context="#wc-product-slider-<?php echo $unique_id; ?>" onclick="return false;" style=" <?php if ( $slider_settings['slider_auto_scroll'] == 'no' ) { echo 'display:none'; } ?>"></span></span>
-                <span class="cycle-play-control"><span class="fa fa-play cycle-play" data-cycle-cmd="resume" data-cycle-context="#wc-product-slider-<?php echo $unique_id; ?>" onclick="return false;" style=" <?php if ( $slider_settings['slider_auto_scroll'] != 'no' ) { echo 'display:none'; } ?>"></span></span>
+            	<span class="cycle-prev-control"><span class="cycle-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span></span>
+                <span class="cycle-next-control"><span class="cycle-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span></span>
+                <span class="cycle-pause-control"><span class="cycle-pause" data-cycle-cmd="pause" data-cycle-context="#wc-product-slider-<?php echo $unique_id; ?>" onclick="return false;" style=" <?php if ( $slider_settings['slider_auto_scroll'] == 'no' ) { echo 'display:none'; } ?>"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/></svg></span></span>
+                <span class="cycle-play-control"><span class="cycle-play" data-cycle-cmd="resume" data-cycle-context="#wc-product-slider-<?php echo $unique_id; ?>" onclick="return false;" style=" <?php if ( $slider_settings['slider_auto_scroll'] != 'no' ) { echo 'display:none'; } ?>"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></span>
             </div>
 
         	<div class="cycle-pager-container" style="display: none;">

@@ -4,7 +4,7 @@ Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
 Requires at least: 5.6
 Tested up to: 6.1
-Stable tag: 1.9.2
+Stable tag: 2.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,6 +94,16 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 2.0.0 - 2023/01/03 =
+* This feature release removes the fontawesome lib and replaces icons with SVGs plus adds Default Topography option to font controls and has compatibility with WooCommerce 7.2
+* Feature - Convert icon from font awesome to SVG
+* Feature - Update styling for new SVG icons
+* Tweak - Test for compatibility with WooCommerce 7.2
+* Plugin Framework - Update typography control from plugin framework to add support for Default value
+* Plugin Framework - Default value will get fonts set in the theme.
+* Plugin Framework - Change generate typography style for change on typography control
+* Plugin Framework - Remove fontawesome lib
 
 = 1.9.2 - 2022/11/01 =
 * This maintenance release has a security vulnerability patch, plus compatibility with WordPress major version 6.1.0 and WooCommerce version 7.0
@@ -561,6 +571,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 2.0.0 =
+This feature release removes the fontawesome lib and replaces icons with SVGs plus adds Default Topography option to font controls and has compatibility with WooCommerce 7.2
 
 = 1.9.2 =
 This maintenance release has a security vulnerability patch, plus compatibility with WordPress major version 6.1.0 and WooCommerce version 7.0
