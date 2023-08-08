@@ -6,11 +6,11 @@ Version: 2.1.0
 Author: a3rev Software
 Author URI: https://a3rev.com/
 Requires at least: 6.0
-Tested up to: 6.2
+Tested up to: 6.3
 Text Domain: woo-widget-product-slideshow
 Domain Path: /languages
 WC requires at least: 3.0
-WC tested up to: 7.6
+WC tested up to: 7.9
 License: GPLv2 or later
 
 	WooCommerce Widget Product Slider Lite plugin.
