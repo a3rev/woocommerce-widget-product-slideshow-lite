@@ -1,0 +1,67 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "a3blocks/wc-product-slider",
+	"title": "Products Slider",
+	"category": "a3rev-blocks",
+	"description": "",
+	"keywords": [ "slider", "carousel" ],
+	"version": "1.0",
+	"textdomain": "woo-widget-product-slideshow",
+	"attributes":{
+		"category_id": {
+			"type": "string",
+			"default": ""
+		},
+		"filter_type": {
+			"type": "string",
+			"default": "recent"
+		},
+		"widget_effect": {
+			"type": "string",
+			"default": "fade"
+		},
+		"number_products": {
+			"type": "number",
+			"default": 6
+		},
+		"slider_auto_scroll": {
+			"type": "string",
+			"default": "no"
+		},
+		"effect_delay": {
+			"type": "number",
+			"default": 1
+		},
+		"effect_timeout": {
+			"type": "number",
+			"default": 4
+		},
+		"effect_speed": {
+			"type": "number",
+			"default": 2
+		},
+		"image_size": {
+			"type": "string",
+			"default": "woocommerce_thumbnail"
+		}
+	},
+	"selectors": {
+        "root": ".wp-block-a3blocks-wc-product-slider"
+    },
+	"supports": {
+		"align": true,
+		"html": true,
+		"spacing": {
+			"margin": true,
+			"padding": false,
+			"__experimentalDefaultControls": {
+				"padding": true
+			}
+		}
+	},
+	"editorScript": "wc-pslider-block-editor",
+	"editorStyle": [ "wc-pslider-block-editor" ],
+	"viewScript": "",
+	"style": ""
+}

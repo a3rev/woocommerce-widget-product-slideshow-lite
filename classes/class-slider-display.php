@@ -74,9 +74,9 @@ class Display
             data-cycle-delay=<?php echo $delay; ?>
             data-cycle-swipe=true
 
-            data-cycle-prev="> .a3-cycle-controls .cycle-prev"
-            data-cycle-next="> .a3-cycle-controls .cycle-next"
-            data-cycle-pager="> .cycle-pager-container .cycle-pager-inside .cycle-pager"
+            data-cycle-prev=".a3-cycle-controls .cycle-prev"
+            data-cycle-next=".a3-cycle-controls .cycle-next"
+            data-cycle-pager=".cycle-pager-container .cycle-pager-inside .cycle-pager"
 
             <?php if ( $is_slider_tall_dynamic == 0 ) { ?>
             data-cycle-center-vert=true

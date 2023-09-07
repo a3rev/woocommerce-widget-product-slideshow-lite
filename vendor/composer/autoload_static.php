@@ -53,6 +53,7 @@ class ComposerStaticInit7ec2d408977aa965423ce0c80f0942f7
         'A3Rev\\WCPSlider\\WPML' => __DIR__ . '/../..' . '/classes/class-slider-wpml.php',
         'A3Rev\\WCPSlider\\Widget\\Carousel' => __DIR__ . '/../..' . '/widget/class-carousel-widget.php',
         'A3Rev\\WCPSlider\\Widget\\Slider' => __DIR__ . '/../..' . '/widget/class-slider-widget.php',
+        'A3Rev\\WCPSlider\\Blocks' => __DIR__ . '/../..' . '/src/blocks.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

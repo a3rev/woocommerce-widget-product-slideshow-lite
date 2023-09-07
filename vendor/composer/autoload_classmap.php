@@ -34,4 +34,5 @@ return array(
     'A3Rev\\WCPSlider\\WPML' => $baseDir . '/classes/class-slider-wpml.php',
     'A3Rev\\WCPSlider\\Widget\\Carousel' => $baseDir . '/widget/class-carousel-widget.php',
     'A3Rev\\WCPSlider\\Widget\\Slider' => $baseDir . '/widget/class-slider-widget.php',
+    'A3Rev\\WCPSlider\\Blocks' => $baseDir . '/src/blocks.php',
 );
