@@ -21,7 +21,7 @@ class Blocks {
 		add_action( 'init', array( $this, 'register_block' ) );
 
 		// Hook: Editor assets.
-		add_action( 'enqueue_block_editor_assets', array( $this, 'cgb_editor_assets' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'cgb_editor_assets' ) );
 	}
 
 	public function create_a3blocks_section() {
@@ -61,6 +61,10 @@ class Blocks {
 	 * @since 1.0.0
 	 */
 	function cgb_editor_assets() { // phpcs:ignore
+
+		if ( ! is_admin() ) {
+			return;
+		}
 
 		$js_deps = apply_filters( 'wc_pslider_block_js_deps', array( 'wp-block-editor', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-data', 'wp-compose', 'wp-components' ) );
 

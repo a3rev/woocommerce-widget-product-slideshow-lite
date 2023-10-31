@@ -3,8 +3,8 @@
 Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
 Requires at least: 6.0
-Tested up to: 6.3
-Stable tag: 2.2.0
+Tested up to: 6.4
+Stable tag: 2.2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,6 +94,12 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 2.2.1 - 2023/10/30 =
+* This maintenance release has a Code Tweak for compatibility with WordPress 6.4 and WooCommerce 8.2
+* Tweak - Tested for compatibility with WordPress 6.4
+* Tweak - Tested for compatibility with WooCommerce 8.2
+* Tweak - Call add action to 'enqueue_block_assets' instead of 'enqueue_block_editor_assets' for enqueue style inside iframe of Gutenberg.
 
 = 2.2.0 - 2023/09/07 =
 * This feature release adds a "Products Slider" Block for use with Gutenberg templates. Also compatibility with WooCommerce 8.0.3 and WordPress 6.3
@@ -584,6 +590,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 2.2.1 =
+This maintenance release has a Code Tweak for compatibility with WordPress 6.4 and WooCommerce 8.2
 
 = 2.2.0 =
 This feature release adds a "Products Slider" Block for use with Gutenberg templates. Also compatibility with WooCommerce 8.0.3 and WordPress 6.3
