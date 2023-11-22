@@ -61,12 +61,7 @@ class Legacy_API {
 
 		$product_results = $this->get_products_cat( $category_id, $filter_type, 'date', $number_products, 0, $slider_lang );
 		
-		if ( version_compare( WC_VERSION, '3.3.0', '<' ) ) {
-			// bw compat. for less than WC 3.3.0
-			$image_size = 'shop_catalog';
-		} else {
-			$image_size = 'woocommerce_thumbnail';
-		}
+		$image_size = 'woocommerce_thumbnail';
 		
 		if ( isset( $slider_settings['image_size'] ) ) {
 			$image_size = $slider_settings['image_size'];
@@ -77,13 +72,7 @@ class Legacy_API {
 			foreach ( $product_results as $product ) {
 				$index_product++;
 				$product_id = $product->ID;
-				if ( version_compare( $woocommerce_db_version, '2.0', '<' ) && null !== $woocommerce_db_version ) {
-					$product_data = new \WC_Product( $product_id ); 
-				} elseif ( version_compare( \WC()->version, '2.2.0', '<' ) ) {
-					$product_data = get_product( $product_id );
-				} else {
-					$product_data = wc_get_product( $product_id );
-				}
+				$product_data = wc_get_product( $product_id );
 				
 				$product_price = $product_data->get_price_html();
 				
@@ -165,7 +154,7 @@ class Legacy_API {
 		delete_transient( 'wc_featured_products' );
 
 		// Get featured products
-		$product_ids_featured = ( ( version_compare( $wc_version, '2.1', '<' ) ) ? woocommerce_get_featured_product_ids() : wc_get_featured_product_ids() );
+		$product_ids_featured = wc_get_featured_product_ids();
 
 		// Support WPML: Get translation of list products for current language
 		if ( class_exists( 'SitePress' ) && function_exists( 'icl_object_id' ) && $current_lang != '' ) {
@@ -182,44 +171,8 @@ class Legacy_API {
 
 		delete_transient( 'wc_products_onsale' );
 
-		if ( version_compare( $wc_version, '2.0', '<' ) ) {
-
-			$meta_query = array();
-
-			$meta_query[] = array(
-				'key' => '_sale_price',
-				'value' 	=> 0,
-				'compare' 	=> '>',
-				'type'		=> 'NUMERIC'
-			);
-
-			$on_sale = get_posts( array(
-				'numberposts'	=> -1,
-				'post_type'		=> array('product', 'product_variation'),
-				'post_status'	=> 'publish',
-				'meta_query'	=> $meta_query,
-				'fields'		=> 'id=>parent'
-			) );
-
-			$product_ids 	= array_keys( $on_sale );
-			$parent_ids		= array_values( $on_sale );
-
-			// Check for scheduled sales which have not started
-			foreach ( $product_ids as $key => $id )
-				if ( get_post_meta( $id, '_sale_price_dates_from', true ) > current_time('timestamp') )
-					unset( $product_ids[ $key ] );
-
-			$product_ids_on_sale = array_unique( array_merge( $product_ids, $parent_ids ) );
-
-			$product_ids_on_sale[] = 0;
-
-		} elseif ( version_compare( $wc_version, '2.1', '<' ) ) {
-			// Get products on sale
-			$product_ids_on_sale = woocommerce_get_product_ids_on_sale();
-		} else {
-			// Get products on sale
-			$product_ids_on_sale = wc_get_product_ids_on_sale();
-		}
+		// Get products on sale
+		$product_ids_on_sale = wc_get_product_ids_on_sale();
 
 		// Support WPML: Get translation of list products for current language
 		if ( class_exists( 'SitePress' ) && function_exists( 'icl_object_id' ) && $current_lang != '' ) {
@@ -236,21 +189,12 @@ class Legacy_API {
 
 		$meta_tax_query = array();
 
-		if ( version_compare( $wc_version, '2.1', '<' ) ) {
-			global $woocommerce;
-			$meta_tax_query[] = $woocommerce->query->visibility_meta_query();
-	    	$meta_tax_query[] = $woocommerce->query->stock_status_meta_query();
-		} elseif ( version_compare( $wc_version, '3.0.0', '<' ) ) {
-			$meta_tax_query[] = \WC()->query->visibility_meta_query();
-	    	$meta_tax_query[] = \WC()->query->stock_status_meta_query();
-		} else {
-			$meta_tax_query[] = array(
-				'taxonomy' => 'product_visibility',
-				'field'    => 'slug',
-				'terms'    => array( 'outofstock' ),
-				'operator' => 'NOT IN',
-			);
-		}
+		$meta_tax_query[] = array(
+			'taxonomy' => 'product_visibility',
+			'field'    => 'slug',
+			'terms'    => array( 'outofstock' ),
+			'operator' => 'NOT IN',
+		);
 
 		return $meta_tax_query;
 	}
@@ -270,11 +214,7 @@ class Legacy_API {
 		$meta_query = array();
 		$tax_query  = array();
 
-		if ( version_compare( $wc_version, '3.0.0', '<' ) ) {
-			$meta_query = $this->get_global_meta_tax_query();
-		} else {
-			$tax_query = $this->get_global_meta_tax_query();
-		}
+		$tax_query = $this->get_global_meta_tax_query();
 
 		if ( $catid > 0 ) {
 

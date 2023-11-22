@@ -32,12 +32,7 @@ class Slider extends \WP_Widget
 	function widget( $args, $instance ) {
 		extract($args);
 
-		if ( version_compare( WC_VERSION, '3.3.0', '<' ) ) {
-			// bw compat. for less than WC 3.3.0
-			$thumbnail_size_name = 'shop_catalog';
-		} else {
-			$thumbnail_size_name = 'woocommerce_thumbnail';
-		}
+		$thumbnail_size_name = 'woocommerce_thumbnail';
 		
 		$instance = wp_parse_args( (array) $instance, array( 
 			'title' 				=> '', 
@@ -121,12 +116,7 @@ class Slider extends \WP_Widget
 
 	function form( $instance ) {
 
-		if ( version_compare( WC_VERSION, '3.3.0', '<' ) ) {
-			// bw compat. for less than WC 3.3.0
-			$thumbnail_size_name = 'shop_catalog';
-		} else {
-			$thumbnail_size_name = 'woocommerce_thumbnail';
-		}
+		$thumbnail_size_name = 'woocommerce_thumbnail';
 
 		$instance = wp_parse_args( (array) $instance, array( 
 			'title' 				=> '', 

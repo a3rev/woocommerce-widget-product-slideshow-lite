@@ -4,7 +4,7 @@ Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
 Requires at least: 6.0
 Tested up to: 6.4
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,6 +94,13 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 2.2.2 - 2023/11/22 =
+* This maintenance release has plugin framework updates for compatibility with PHP 8.1 onwards, a WPML compatibility fix plus update backward compatibility to WooCommerce 6.0.
+* Tweak - Remove backward compatibility for WooCommerce versions less than 6.0
+* Framework - Set parameter number of preg_match function from null to 0 for compatibility with PHP 8.1 onwards
+* Framework - Validate empty before call trim for option value
+* Fix - Do not registry wpml string text for text that does not exist from settings
 
 = 2.2.1 - 2023/10/30 =
 * This maintenance release has a Code Tweak for compatibility with WordPress 6.4 and WooCommerce 8.2
@@ -590,6 +597,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 2.2.2 =
+This maintenance release has plugin framework updates for compatibility with PHP 8.1 onwards, a WPML compatibility fix plus update backward compatibility to WooCommerce 6.0.
 
 = 2.2.1 =
 This maintenance release has a Code Tweak for compatibility with WordPress 6.4 and WooCommerce 8.2
