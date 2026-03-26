@@ -60,35 +60,39 @@ export default class Inspector extends Component {
 		return (
 			<InspectorControls>
 				<PanelBody title={ __( 'Source Settings' ) }>
-					<SelectControl
-						label={ __( 'Category' ) }
-						value={ category_id ? category_id : '' }
-						onChange={ value => setAttributes( { category_id: value } ) }
-						options={ catList }
-					/>
-					<SelectControl
-						label={ __( 'Select Filter' ) }
-						value={ filter_type ? filter_type : 'recent' }
-						onChange={ value => setAttributes( { filter_type: value } ) }
-						options={ filterList }
-					/>
-					<RangeControl
-						label={ __( 'Number of products' ) }
-						help={ __( 'Important! Set -1 to show all products. Warning - Setting large numbers (unlimited) could / will have an  impact on page load speed on some sites.' ) }
-						value={ number_products }
-						onChange={ ( value ) =>
-							setAttributes( { number_products: value } )
-						}
-						min={ -1 }
-					/>
+				<SelectControl
+					__next40pxDefaultSize
+					label={ __( 'Category' ) }
+					value={ category_id ? category_id : '' }
+					onChange={ value => setAttributes( { category_id: value } ) }
+					options={ catList }
+				/>
+				<SelectControl
+					__next40pxDefaultSize
+					label={ __( 'Select Filter' ) }
+					value={ filter_type ? filter_type : 'recent' }
+					onChange={ value => setAttributes( { filter_type: value } ) }
+					options={ filterList }
+				/>
+				<RangeControl
+					__next40pxDefaultSize
+					label={ __( 'Number of products' ) }
+					help={ __( 'Important! Set -1 to show all products. Warning - Setting large numbers (unlimited) could / will have an  impact on page load speed on some sites.' ) }
+					value={ number_products }
+					onChange={ ( value ) =>
+						setAttributes( { number_products: value } )
+					}
+					min={ -1 }
+				/>
 				</PanelBody>
 				<PanelBody title={ __( 'Slider Settings' ) }>
-					<SelectControl
-						label={ __( 'Widget Effect' ) }
-						value={ widget_effect ? widget_effect : 'fade' }
-						onChange={ value => setAttributes( { widget_effect: value } ) }
-						options={ widgetEffects }
-					/>
+				<SelectControl
+					__next40pxDefaultSize
+					label={ __( 'Widget Effect' ) }
+					value={ widget_effect ? widget_effect : 'fade' }
+					onChange={ value => setAttributes( { widget_effect: value } ) }
+					options={ widgetEffects }
+				/>
 				</PanelBody>
 				<PanelBody title={ __( 'Transition Settings' ) }>
 					<RadioControl
@@ -101,40 +105,44 @@ export default class Inspector extends Component {
 						onChange={ value => setAttributes( { slider_auto_scroll: value } ) }
 					/>
 					{ 'yes' === slider_auto_scroll && (
-						<RangeControl
-							label={ __( 'Auto Start Delay' ) }
-							help={ __( 'seconds' ) }
-							value={ effect_delay }
-							onChange={ ( value ) =>
-								setAttributes( { effect_delay: value } )
-							}
-							min={ 1 }
-						/>
+					<RangeControl
+						__next40pxDefaultSize
+						label={ __( 'Auto Start Delay' ) }
+						help={ __( 'seconds' ) }
+						value={ effect_delay }
+						onChange={ ( value ) =>
+							setAttributes( { effect_delay: value } )
+						}
+						min={ 1 }
+					/>
 					) }
-					<RangeControl
-						label={ __( 'Time Between Transitions' ) }
-						help={ __( 'seconds' ) }
-						value={ effect_timeout }
-						onChange={ ( value ) =>
-							setAttributes( { effect_timeout: value } )
-						}
-						min={ 1 }
-					/>
-					<RangeControl
-						label={ __( 'Transition Effect Speed' ) }
-						help={ __( 'seconds' ) }
-						value={ effect_speed }
-						onChange={ ( value ) =>
-							setAttributes( { effect_speed: value } )
-						}
-						min={ 1 }
-					/>
-					<SelectControl
-						label={ __( 'Thumbnail Size' ) }
-						value={ image_size ? image_size : '' }
-						onChange={ value => setAttributes( { image_size: value } ) }
-						options={ imageSizes }
-					/>
+				<RangeControl
+					__next40pxDefaultSize
+					label={ __( 'Time Between Transitions' ) }
+					help={ __( 'seconds' ) }
+					value={ effect_timeout }
+					onChange={ ( value ) =>
+						setAttributes( { effect_timeout: value } )
+					}
+					min={ 1 }
+				/>
+				<RangeControl
+					__next40pxDefaultSize
+					label={ __( 'Transition Effect Speed' ) }
+					help={ __( 'seconds' ) }
+					value={ effect_speed }
+					onChange={ ( value ) =>
+						setAttributes( { effect_speed: value } )
+					}
+					min={ 1 }
+				/>
+				<SelectControl
+					__next40pxDefaultSize
+					label={ __( 'Thumbnail Size' ) }
+					value={ image_size ? image_size : '' }
+					onChange={ value => setAttributes( { image_size: value } ) }
+					options={ imageSizes }
+				/>
 				</PanelBody>
 			</InspectorControls>
 	 	);
