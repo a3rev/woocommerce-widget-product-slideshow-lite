@@ -22,10 +22,11 @@ function wc_product_slider_init() {
 		$GLOBALS[WC_PRODUCT_SLIDER_PREFIX.'less']->plugin_build_sass();
 	}
 
-	wc_product_slider_plugin_textdomain();
 }
 
 add_action( 'init', 'wc_product_slider_init' );
+
+add_action( 'after_setup_theme', 'wc_product_slider_plugin_textdomain' );
 
 // Add custom style to dashboard
 add_action( 'admin_enqueue_scripts', array( '\A3Rev\WCPSlider\Hook_Filter', 'a3_wp_admin' ) );
