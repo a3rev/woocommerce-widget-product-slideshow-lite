@@ -28,8 +28,6 @@ class Hook_Filter
 {
 
 	public static function frontend_scripts_register() {
-		global $wp_scripts;
-
 		$_upload_dir = wp_upload_dir();
 
 		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
@@ -53,8 +51,6 @@ class Hook_Filter
 
 		wp_register_script( 'a3-cycle2-flip-script', WC_PRODUCT_SLIDER_EXTENSION_JS_URL . '/jquery.cycle2.flip'. $suffix .'.js', array( 'jquery', 'a3-cycle2-script' ), '2.1.2' );
 		wp_register_script( 'a3-cycle2-scrollVert-script', WC_PRODUCT_SLIDER_EXTENSION_JS_URL . '/jquery.cycle2.scrollVert'. $suffix .'.js', array( 'jquery', 'a3-cycle2-script' ), '2.1.2' );
-		wp_register_script( 'a3-cycle2-ie-fade-script', WC_PRODUCT_SLIDER_EXTENSION_JS_URL . '/jquery.cycle2.ie-fade'. $suffix .'.js', array( 'jquery', 'a3-cycle2-script' ), '2.1.2' );
-		$wp_scripts->add_data( 'a3-cycle2-ie-fade-script', 'conditional', 'IE' );
 
 		wp_register_script( 'wc-product-slider-script', WC_PRODUCT_SLIDER_JS_URL . '/wc-product-slider-script.js', array( 'jquery' ), WC_PRODUCT_SLIDER_VERSION );
 
@@ -73,9 +69,6 @@ class Hook_Filter
 		}
 		if ( in_array( $script_settings['fx'], array( 'random', 'scrollHorz', 'scrollVert' ) ) ) {
 			wp_enqueue_script( 'a3-cycle2-scrollVert-script' );
-		}
-		if ( in_array( $script_settings['fx'], array( 'random', 'fade', 'fadeout' ) ) ) {
-			wp_enqueue_script( 'a3-cycle2-ie-fade-script' );
 		}
 
 		$wc_product_slider_hook_backbone->enqueue_plugin_scripts();

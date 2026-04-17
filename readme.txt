@@ -4,7 +4,7 @@ Contributors: a3rev, nguyencongtuan
 Tags: WooCommerce widgets, WooCommerce, WooCommerce widget product slideshow, WooCommerce Product images, woothemes, wordpress ecommerce
 Requires at least: 6.0
 Tested up to: 7.0
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,6 +94,11 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Changelog ==
+
+= 2.3.1 - 2026/04/17 =
+* This maintenance release improves product slider reliability and compatibility with the latest WordPress releases
+* Fix - Improved compatibility with the latest WordPress releases
+* Tweak - Smoother product slider experience on the storefront
 
 = 2.3.0 - 2026/03/31 =
 * This maintenance release has bug fixes and compatibility with WordPress 7.0, WooCommerce 10.6
@@ -612,6 +617,9 @@ You can use this plugin only when you have installed the WooCommerce plugin.
 
 
 == Upgrade Notice ==
+
+= 2.3.1 =
+This maintenance release improves product slider reliability and compatibility with the latest WordPress releases
 
 = 2.3.0 =
 This maintenance release has bug fixes and compatibility with WordPress 7.0, WooCommerce 10.6

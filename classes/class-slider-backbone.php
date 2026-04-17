@@ -26,7 +26,7 @@ class Backbone
 	public function register_plugin_scripts() {
 		wp_register_script( 'backbone.localStorage', WC_PRODUCT_SLIDER_JS_URL . '/backbone/backbone.localStorage.js', array( 'jquery', 'underscore', 'backbone' ) , '1.1.9', true );
 		wp_register_script( 'wc-product-sliders-app', WC_PRODUCT_SLIDER_JS_URL . '/backbone/product_sliders_app.js', array( 'jquery', 'underscore', 'backbone' ), WC_PRODUCT_SLIDER_VERSION, true );
-		wp_register_script( 'wc-product-slider-backbone', WC_PRODUCT_SLIDER_JS_URL . '/backbone/product_slider.backbone.js', array( 'jquery', 'underscore', 'backbone', 'backbone.localStorage', 'wc-product-sliders-app' ), WC_PRODUCT_SLIDER_VERSION, true );
+		wp_register_script( 'wc-product-slider-backbone', WC_PRODUCT_SLIDER_JS_URL . '/backbone/product_slider.backbone.js', array( 'jquery', 'jquery-imagesloaded', 'underscore', 'backbone', 'backbone.localStorage', 'wc-product-sliders-app' ), WC_PRODUCT_SLIDER_VERSION, true );
 	}
 
 	public function enqueue_plugin_scripts() {
