@@ -33,7 +33,7 @@ class Legacy_API {
 	
 	public function api_handler() {
 		if ( isset( $_REQUEST['action'] ) ) {
-			$action = addslashes( trim( $_REQUEST['action'] ) );
+			$action = sanitize_key( wp_unslash( $_REQUEST['action'] ) );
 			switch ( $action ) {
 				case 'get_slider_items' :
 					$this->get_slider_items();
@@ -48,16 +48,18 @@ class Legacy_API {
 		$woocommerce_db_version = get_option( 'woocommerce_db_version', null );
 		$slider_lang = '';
 		
-		$slider_query_string = base64_decode( sanitize_text_field( $_REQUEST['slider_id'] ) );
+		$slider_query_string = isset( $_REQUEST['slider_id'] ) ? base64_decode( sanitize_text_field( wp_unslash( $_REQUEST['slider_id'] ) ) ) : '';
 		$slider_settings = array();
-		if ( isset( $_REQUEST['slider_settings'] ) ) $slider_settings = array_map( 'sanitize_text_field', $_REQUEST['slider_settings'] );
-		
+		if ( isset( $_REQUEST['slider_settings'] ) ) $slider_settings = array_map( 'sanitize_text_field', wp_unslash( $_REQUEST['slider_settings'] ) );
+
 		$slider_data = array();
 		parse_str( $slider_query_string, $slider_data );
-		
-		extract( $slider_data );
 
-		if ( isset( $_POST['slider_lang'] ) ) $slider_lang = sanitize_text_field( $_POST['slider_lang'] );
+		$category_id     = isset( $slider_data['category_id'] ) ? (int) $slider_data['category_id'] : 0;
+		$filter_type     = isset( $slider_data['filter_type'] ) ? sanitize_key( $slider_data['filter_type'] ) : '';
+		$number_products = isset( $slider_data['number_products'] ) ? (int) $slider_data['number_products'] : 6;
+
+		if ( isset( $_POST['slider_lang'] ) ) $slider_lang = sanitize_text_field( wp_unslash( $_POST['slider_lang'] ) );
 
 		$product_results = $this->get_products_cat( $category_id, $filter_type, 'date', $number_products, 0, $slider_lang );
 		
@@ -150,9 +152,6 @@ class Legacy_API {
 	public function add_featured_args_query( $args=array(), $current_lang = '' ) {
 		$wc_version = get_option( 'woocommerce_version', '1.0.0' );
 
-		// Delete featured cached
-		delete_transient( 'wc_featured_products' );
-
 		// Get featured products
 		$product_ids_featured = wc_get_featured_product_ids();
 
@@ -168,8 +167,6 @@ class Legacy_API {
 
 	public function add_onsale_args_query( $args=array(), $current_lang = '' ) {
 		$wc_version = get_option( 'woocommerce_version', '1.0.0' );
-
-		delete_transient( 'wc_products_onsale' );
 
 		// Get products on sale
 		$product_ids_on_sale = wc_get_product_ids_on_sale();

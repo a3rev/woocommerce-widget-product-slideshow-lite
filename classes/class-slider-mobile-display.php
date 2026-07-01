@@ -52,9 +52,9 @@ class Mobile_Display
     }
     ?>
     <?php echo $lazy_hidden;?>
-    <div id="wc-product-slider-container-<?php echo $unique_id; ?>" class="wc-product-slider-container wc-product-slider-mobile-skin" data-slider-id="<?php echo $slider_id; ?>" data-slider-settings="<?php echo esc_attr( json_encode( $slider_settings ) ); ?>" data-slider-skin-type="mobile" >
+    <div id="wc-product-slider-container-<?php echo $unique_id; ?>" class="wc-product-slider-container wc-product-slider-mobile-skin" data-slider-id="<?php echo esc_attr( $slider_id ); ?>" data-slider-settings="<?php echo esc_attr( json_encode( $slider_settings ) ); ?>" data-slider-skin-type="mobile" >
     	<div id="wc-product-slider-<?php echo $unique_id; ?>" class="wc-product-slider <?php echo $lazy_load; ?>"
-        	data-cycle-fx="<?php echo $fx; ?>"
+        	data-cycle-fx="<?php echo esc_attr( $fx ); ?>"
             data-cycle-paused=true
             data-cycle-auto-height=container
             
@@ -62,7 +62,7 @@ class Mobile_Display
             
             data-cycle-swipe=true
             
-            data-cycle-caption="> .cycle-caption-container .cycle-caption"
+            data-cycle-caption=".cycle-caption-container .cycle-caption"
             data-cycle-caption-template="{{slideNum}} / {{slideCount}}"
             data-cycle-caption-plugin="caption2"
 
