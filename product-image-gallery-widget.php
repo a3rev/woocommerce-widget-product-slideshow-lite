@@ -2,7 +2,7 @@
 /*
 Plugin Name: Product Widget Slider for WooCommerce
 Description: Adds visually stunning WooCommerce product sliders to any widgeted area. Fully customizable, Widget Skin. Fully mobile responsive. Show any number of products from a selected product category.
-Version: 2.3.1
+Version: 2.3.2
 Author: a3rev Software
 Author URI: https://a3rev.com/
 Requires at least: 6.0
@@ -36,12 +36,12 @@ define('WC_PRODUCT_SLIDER_EXTENSION_JS_URL', WC_PRODUCT_SLIDER_JS_URL . '/cycle2
 define('WC_PRODUCT_SLIDER_CSS_URL', WC_PRODUCT_SLIDER_URL . '/assets/css');
 
 if (!defined("WC_PRODUCT_SLIDER_DOCS_URI")) define("WC_PRODUCT_SLIDER_DOCS_URI", "http://docs.a3rev.com/user-guides/plugins-extensions/woocommerce-product-slider/");
-if (!defined("WC_PRODUCT_SLIDER_VERSION_URI")) define("WC_PRODUCT_SLIDER_VERSION_URI", "http://a3rev.com/shop/woocommerce-product-slider/");
-if (!defined("WC_CAROUSEL_SLIDER_VERSION_URI")) define("WC_CAROUSEL_SLIDER_VERSION_URI", "http://a3rev.com/shop/woocommerce-carousel-slider/");
+if (!defined("WC_PRODUCT_SLIDER_VERSION_URI")) define("WC_PRODUCT_SLIDER_VERSION_URI", "https://a3rev.com/shop/woocommerce-product-slider/");
+if (!defined("WC_CAROUSEL_SLIDER_VERSION_URI")) define("WC_CAROUSEL_SLIDER_VERSION_URI", "https://a3rev.com/shop/woocommerce-carousel-slider/");
 
 define( 'WC_PRODUCT_SLIDER_KEY', 'woo_gallery_widget' );
 define( 'WC_PRODUCT_SLIDER_PREFIX', 'wc_product_slider_' );
-define( 'WC_PRODUCT_SLIDER_VERSION', '2.3.1' );
+define( 'WC_PRODUCT_SLIDER_VERSION', '2.3.2' );
 define( 'WC_PRODUCT_SLIDER_G_FONTS', true );
 
 // declare compatibility with new HPOS of WooCommerce

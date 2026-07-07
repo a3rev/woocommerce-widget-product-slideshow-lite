@@ -64,14 +64,14 @@ class Display
     <?php echo $lazy_hidden;?>
     <?php if ( $title_position == 'above' ) self::get_title_widget_skin( $unique_id ); ?>
 
-    <div id="wc-product-slider-container-<?php echo $unique_id; ?>" class="wc-product-slider-container wc-product-slider-widget-skin" data-slider-id="<?php echo $slider_id; ?>" data-slider-settings="<?php echo esc_attr( json_encode( $slider_settings ) ); ?>" data-slider-skin-type="widget" >
+    <div id="wc-product-slider-container-<?php echo $unique_id; ?>" class="wc-product-slider-container wc-product-slider-widget-skin" data-slider-id="<?php echo esc_attr( $slider_id ); ?>" data-slider-settings="<?php echo esc_attr( json_encode( $slider_settings ) ); ?>" data-slider-skin-type="widget" >
     	<div style=" <?php if ( $is_slider_tall_dynamic == 0 ) { echo 'height:'.$slider_height_fixed. 'px'; } ?>" id="wc-product-slider-<?php echo $unique_id; ?>" class="wc-product-slider <?php echo $lazy_load; ?> <?php if ( $is_slider_tall_dynamic == 1 ) { ?>wc-product-slider-dynamic-tall<?php } ?>"
-        	data-cycle-fx="<?php echo $fx; ?>"
+        	data-cycle-fx="<?php echo esc_attr( $fx ); ?>"
             <?php echo $transition_attributes; ?>
 
-        	data-cycle-timeout=<?php echo $timeout; ?>
-            data-cycle-speed=<?php echo $speed; ?>
-            data-cycle-delay=<?php echo $delay; ?>
+        	data-cycle-timeout="<?php echo esc_attr( $timeout ); ?>"
+            data-cycle-speed="<?php echo esc_attr( $speed ); ?>"
+            data-cycle-delay="<?php echo esc_attr( $delay ); ?>"
             data-cycle-swipe=true
 
             data-cycle-prev=".a3-cycle-controls .cycle-prev"
@@ -120,11 +120,11 @@ class Display
     <div id="cycle-widget-skin-overlay-<?php echo $unique_id; ?>" class="cycle-widget-skin-product-linked-container"></div>
 
     <?php if ( $enable_category_link == 1 && trim( $category_link ) != '' ) { ?>
-    <div class="cycle-widget-skin-category-linked-container"><a class="cycle-category-linked" href="<?php echo esc_attr( $category_link ); ?>"><?php echo trim( $category_link_text ); ?></a></div>
+    <div class="cycle-widget-skin-category-linked-container"><a class="cycle-category-linked" href="<?php echo esc_attr( $category_link ); ?>"><?php echo esc_html( trim( $category_link_text ) ); ?></a></div>
     <?php } ?>
 
     <?php if ( $enable_tag_link == 1 && trim( $tag_link ) != '' ) { ?>
-    <div class="cycle-widget-skin-tag-linked-container"><a class="cycle-tag-linked" href="<?php echo esc_attr( $tag_link ); ?>"><?php echo trim( $tag_link_text ); ?></a></div>
+    <div class="cycle-widget-skin-tag-linked-container"><a class="cycle-tag-linked" href="<?php echo esc_attr( $tag_link ); ?>"><?php echo esc_html( trim( $tag_link_text ) ); ?></a></div>
     <?php } ?>
 
     </div>
